@@ -26,7 +26,7 @@
                 // --------------------------------------
 ?>
 
-<form class="modal" id="<?php echo $modalId?>" data-form="<?php echo $modalId?>">
+<div class="modal" id="<?php echo $modalId?>" data-form="<?php echo $modalId?>">
     <div class="modal-header">
         <span><?php echo htmlspecialchars($ff['nombre'])?></span>
         <span><?php echo htmlspecialchars($identi)?></span>
@@ -63,11 +63,11 @@
         </div>
         <div class="modal-savebutton">
             <input type="hidden" name="id_a_cambiar">
-            <button class="save-button" id="sage" data-modal-id="<?php echo $modalId;?>">Aplicar cambios</button>
+            <button class="save-button"  data-modal-id="<?php echo $modalId;?>">Aplicar cambios</button>
         </div>
     </div>
     
-</form>
+            </div>
 <?php
             }
         }
