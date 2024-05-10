@@ -1,4 +1,3 @@
-
 <table>
                                     <thead>
                                     <tr>
@@ -39,6 +38,3 @@
                                 </table>
 
                                 <script src="../Js/testt.js"></script>
-
-                               
-                                

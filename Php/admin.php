@@ -114,7 +114,7 @@
                 </div>
 
 
-                
+                <!-- ---------------------------------------------- -->
                 <div class="secion1">
                     <div class="seci_notificaiones">
                         <h2>Gestionar medicos</h2>
@@ -145,7 +145,7 @@
                     </a>
                 </div>
 
-                
+                <!-- ---------------------------------------------- -->
                 <div class="secion1">
                     <div class="seci_notificaiones">
                         <h2>Gestionar pacientes</h2>
@@ -172,6 +172,155 @@
                     <a href="#panel_pac" class="inicio">
                         <div class="con_opcion">
                             <h4>Panel pacientes</h4>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- ---------------------------------------------- -->
+                <div class="secion1">
+                    <div class="seci_notificaiones">
+                        <h2>Gestionar citas</h2>
+                    </div>
+                    <div class="linecita">
+                        <hr>
+                    </div>
+                </div>
+                <div class="inicio">
+                    <a href="#reg_cita">
+                        <div class="con_imagen" id="icono"> <img src="../Img/historiaclinica.png" alt=""></div>
+                    </a>
+                    <a href="#reg_cita" class="inicio">
+                        <div class="con_opcion">
+                            <h4>Registrar cita</h4>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="inicio">
+                    <a href="#panel_cita">
+                        <div class="con_imagen" id="icono"> <img src="../Img/user_panel.png" alt=""></div>
+                    </a>
+                    <a href="#panel_cita" class="inicio">
+                        <div class="con_opcion">
+                            <h4>Panel citas</h4>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- ---------------------------------------------- -->
+                <div class="secion1">
+                    <div class="seci_notificaiones">
+                        <h2>Gestionar patologias</h2>
+                    </div>
+                    <div class="linecita">
+                        <hr>
+                    </div>
+                </div>
+                <div class="inicio">
+                    <a href="#reg_pato">
+                        <div class="con_imagen" id="icono"> <img src="../Img/historiaclinica.png" alt=""></div>
+                    </a>
+                    <a href="#reg_pato" class="inicio">
+                        <div class="con_opcion">
+                            <h4>Registrar patologia</h4>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="inicio">
+                    <a href="#panel_pato">
+                        <div class="con_imagen" id="icono"> <img src="../Img/user_panel.png" alt=""></div>
+                    </a>
+                    <a href="#panel_pato" class="inicio">
+                        <div class="con_opcion">
+                            <h4>Panel patologias</h4>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- ----------------------HERE------------------------ -->
+                <!-- ----------------------HERE------------------------ -->
+                <!-- ----------------------HERE------------------------ -->
+                <!-- ----------------------HERE------------------------ -->
+                <div class="secion1">
+                    <div class="seci_notificaiones">
+                        <h2>Gestionar tipos cita</h2>
+                    </div>
+                    <div class="linecita">
+                        <hr>
+                    </div>
+                </div>
+                <div class="inicio">
+                    <a href="#reg_tcita">
+                        <div class="con_imagen" id="icono"> <img src="../Img/historiaclinica.png" alt=""></div>
+                    </a>
+                    <a href="#reg_tcita" class="inicio">
+                        <div class="con_opcion">
+                            <h4>Registrar tipo de cita</h4>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="inicio">
+                    <a href="#panel_tcita">
+                        <div class="con_imagen" id="icono"> <img src="../Img/user_panel.png" alt=""></div>
+                    </a>
+                    <a href="#panel_tcita" class="inicio">
+                        <div class="con_opcion">
+                            <h4>Panel tipo de citas</h4>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- ---------------------------------------------- -->
+                <div class="secion1">
+                    <div class="seci_notificaiones">
+                        <h2>Gestionar especialidades</h2>
+                    </div>
+                    <div class="linecita">
+                        <hr>
+                    </div>
+                </div>
+                <div class="inicio">
+                    <a href="#reg_especi">
+                        <div class="con_imagen" id="icono"> <img src="../Img/historiaclinica.png" alt=""></div>
+                    </a>
+                    <a href="#reg_especi" class="inicio">
+                        <div class="con_opcion">
+                            <h4>Registrar especialidades</h4>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="inicio">
+                    <a href="#panel_especi">
+                        <div class="con_imagen" id="icono"> <img src="../Img/user_panel.png" alt=""></div>
+                    </a>
+                    <a href="#panel_especi" class="inicio">
+                        <div class="con_opcion">
+                            <h4>Panel especialidades</h4>
+                        </div>
+                    </a>
+                </div>
+
+
+                <!-- ---------------------------------------------- -->
+                <div class="secion1">
+                    <div class="seci_notificaiones">
+                        <h2>Gestionar roles</h2>
+                    </div>
+                    <div class="linecita">
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="inicio">
+                    <a href="#panel_roles">
+                        <div class="con_imagen" id="icono"> <img src="../Img/user_panel.png" alt=""></div>
+                    </a>
+                    <a href="#panel_roles" class="inicio">
+                        <div class="con_opcion">
+                            <h4>Panel roles</h4>
                         </div>
                     </a>
                 </div>
@@ -274,7 +423,7 @@
                                             <td> <?php echo $fila['edad'];?></td>
                                             <td> <?php echo $fila['telefono'];?></td>
                                             <td><button data-modal-target="#modal_<?php echo $fila['id_usuario'];?>">Detalles</button></td>
-                                            <td><button id="delete" data-user-id="<?php echo $fila['id_usuario'];?>" data-role='3'>Eliminar</button></td>
+                                            <td><button class="delete" data-user-id="<?php echo $fila['id_usuario'];?>" data-role='3'>Eliminar</button></td>
                                         </tr>
 
                                         <?php
@@ -353,7 +502,7 @@
                             <p>Panel pacientes</p>
                         </div>
                             <div class="cont_general_all">
-                            <div class="patient-main">
+                            <div class="patient-main" id="contain_tablas">
                         <table>
                             <thead>
                             <tr>
@@ -384,7 +533,7 @@
                                     <td><?php echo $row['edad'];?></td>
                                     <td><?php echo $row['genero'];?></td>
                                     <td><button data-modal-target="#modal_<?php echo $row['id_usuario'];?>">Detalles</button></td>
-                                    <td><button id="delete" data-user-id="<?php echo $row['id_usuario'];?>" data-role='2'>Eliminar</button></td>
+                                    <td><button class="delete" data-user-id="<?php echo $row['id_usuario'];?>" data-role='2'>Eliminar</button></td>
                                 </tr>
                                     
                                 <?php
@@ -394,8 +543,293 @@
                             </tbody>
                         </table>
                     </div>
-                            </div>
+                        </div>
 
+                    </div>
+
+                    <!-- ---------------REGISTRO CITAS---------------- -->
+                    <div id="reg_cita" class="contain_main">
+                        <div class="cont_titulo">
+                            <p>Registrar citas</p>
+                        </div>
+
+                        <div class="cont_general_all">
+                        
+
+                        </div>    
+                    </div>
+
+                    <!-- --------------PANEL CITAS----------------- -->
+                    <div id="panel_cita" class="contain_main">
+                        <div class="cont_titulo">
+                            <p>Panel citas</p>
+                        </div>
+                        <div class="cont_general_all">
+
+                            <div class="panel-main" id="contain_tablas"> 
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>Nombre Paciente</th>
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
+                                        <th>Tipo Cita</th>
+                                        <th style="width: 15%;"></th>
+                                        <th style="width: 15%;"></th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <?php 
+                                        
+                                        require_once 'conexion.php';
+
+                                        $sql3 = "SELECT * FROM citas_agendadas 
+                                                INNER JOIN preagendamiento ON citas_agendadas.id_preagendamiento = preagendamiento.id_preagendamiento 
+                                                INNER JOIN usuario ON preagendamiento.id_usuario = usuario.id_usuario
+                                                INNER JOIN tipo_cita ON preagendamiento.id_tipo_cita = tipo_cita.id";   //cita
+                                        $cita_query = mysqli_query($conn, $sql3);
+                                        if(mysqli_num_rows($consulta)>0){
+                                            while($pato =mysqli_fetch_assoc($cita_query)){
+                                        ?>
+                                        <tr id=table_row_<?php echo $pato['id_usuario']?>>
+                                            <td> <?php echo $pato['nombre'];?></td>
+                                            <td> <?php echo $pato['FechaAsignada'];?></td>
+                                            <td> <?php echo $pato['HoraAsignado'];?></td>
+                                            <td> <?php echo $pato['enombre'];?></td>
+                                            <td><button data-modal-target="#modal_<?php echo $pato['id_usuario'];?>">Detalles</button></td>
+                                            <td><button class="delete" data-user-id="<?php echo $pato['id_usuario'];?>" data-role='3'>Eliminar</button></td>
+                                        </tr>
+
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ---------------REGISTRO PATOLOGIA---------------- -->
+                    <div id="reg_pato" class="contain_main">
+                        <div class="cont_titulo">
+                            <p>Registrar patologias</p>
+                        </div>
+
+                        <div class="cont_general_all">
+                        
+
+                        </div>    
+                    </div>
+
+                    <!-- --------------PANEL PATOLOGIAS----------------- -->
+                    <div id="panel_pato" class="contain_main">
+                        <div class="cont_titulo">
+                            <p>Panel patologias</p>
+                        </div>
+                        <div class="cont_general_all">
+
+                            <div class="panel-main" id="contain_tablas"> 
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>ID Patologia</th>
+                                        <th>Nombre Patologia</th>
+                                        <th>Puntuacion</th>
+                                        <th style="width: 15%;"></th>
+                                        <th style="width: 15%;"></th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <?php 
+                                        
+                                        require_once 'conexion.php';
+
+                                        $sql4 = "SELECT * FROM patologias";   //patologias
+                                        $cita_query = mysqli_query($conn, $sql4);
+                                        if(mysqli_num_rows($consulta)>0){
+                                            while($pato =mysqli_fetch_assoc($cita_query)){
+                                        ?>
+                                        <tr id=table_row_<?php echo $pato['id_patologia']?>>
+                                            <td> <?php echo $pato['id_patologia'];?></td>
+                                            <td> <?php echo $pato['nombre_patologia'];?></td>
+                                            <td> <?php echo $pato['puntuacion'];?></td>
+                                            <td><button data-modal-target="#modal_<?php echo $pato['id_patologia'];?>">Detalles</button></td>
+                                            <td><button class="delete" data-user-id="<?php echo $pato['id_patologia'];?>">Eliminar</button></td>
+                                        </tr>
+
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ---------------REGISTRO TIPO CITAS---------------- -->
+                    <div id="reg_tcita" class="contain_main">
+                        <div class="cont_titulo">
+                            <p>Registrar tipo de citas</p>
+                        </div>
+
+                        <div class="cont_general_all">
+                        
+
+                        </div>    
+                    </div>
+
+                    <!-- --------------PANEL TIPO CITAS----------------- -->
+                    <div id="panel_tcita" class="contain_main">
+                        <div class="cont_titulo">
+                            <p>Panel tipo de citas</p>
+                        </div>
+                        <div class="cont_general_all">
+
+                            <div class="panel-main" id="contain_tablas"> 
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>ID Tipo Cita</th>
+                                        <th>Tipo de Cita</th>
+                                        <th style="width: 15%;"></th>
+                                        <th style="width: 15%;"></th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <?php 
+                                        
+                                        require_once 'conexion.php';
+
+                                        $sql5 = "SELECT * FROM tipo_cita";   //tipo citas
+                                        $consulta = mysqli_query($conn, $sql5);
+                                        if(mysqli_num_rows($consulta)>0){
+                                            while($tcita =mysqli_fetch_assoc($consulta)){
+                                        ?>
+                                        <tr id=table_row_<?php echo $tcita['id']?>>
+                                            <td> <?php echo $tcita['id'];?></td>
+                                            <td> <?php echo $tcita['enombre'];?></td>
+                                            <td><button data-modal-target="#modal_<?php echo $tcita['id'];?>">Detalles</button></td>
+                                            <td><button class="delete" data-user-id="<?php echo $tcita['id'];?>">Eliminar</button></td>
+                                        </tr>
+
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ---------------REGISTRO ESPECIALIDADES---------------- -->
+                    <div id="reg_especi" class="contain_main">
+                        <div class="cont_titulo">
+                            <p>Registrar especialidades</p>
+                        </div>
+
+                        <div class="cont_general_all">
+                        
+
+                        </div>    
+                    </div>
+
+                    <!-- --------------PANEL ESPECIALIDADES----------------- -->
+                    <div id="panel_especi" class="contain_main">
+                        <div class="cont_titulo">
+                            <p>Panel especialidades</p>
+                        </div>
+                        <div class="cont_general_all">
+
+                            <div class="panel-main" id="contain_tablas"> 
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>ID Especialidad</th>
+                                        <th>Nombre Especialidad</th>
+                                        <th style="width: 15%;"></th>
+                                        <th style="width: 15%;"></th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <?php 
+                                        
+                                        require_once 'conexion.php';
+
+                                        $sql6 = "SELECT * FROM especialidades";   //especialidades
+                                        $consulta = mysqli_query($conn, $sql6);
+                                        if(mysqli_num_rows($consulta)>0){
+                                            while($especi =mysqli_fetch_assoc($consulta)){
+                                        ?>
+                                        <tr id=table_row_<?php echo $especi['id_especialidad']?>>
+                                            <td> <?php echo $especi['id_especialidad'];?></td>
+                                            <td> <?php echo $especi['especialidad'];?></td>
+                                            <td><button data-modal-target="#modal_<?php echo $especi['id_especialidad'];?>">Detalles</button></td>
+                                            <td><button class="delete" data-user-id="<?php echo $especi['id_especialidad'];?>">Eliminar</button></td>
+                                        </tr>
+
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- --------------PANEL ROLES----------------- -->
+                    <div id="panel_roles" class="contain_main">
+                        <div class="cont_titulo">
+                            <p>Panel citas</p>
+                        </div>
+                        <div class="cont_general_all">
+
+                            <div class="panel-main" id="contain_tablas"> 
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>ID Rol</th>
+                                        <th>Nombre Rol</th>
+                                        <th style="width: 15%;"></th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <?php 
+                                        
+                                        require_once 'conexion.php';
+
+                                        $sql7 = "SELECT * FROM roles";   //patologias
+                                        $consulta = mysqli_query($conn, $sql7);
+                                        if(mysqli_num_rows($consulta)>0){
+                                            while($roles =mysqli_fetch_assoc($consulta)){
+                                        ?>
+                                        <tr id=table_row_<?php echo $roles['id_rol']?>>
+                                            <td> <?php echo $roles['id_rol'];?></td>
+                                            <td> <?php echo $roles['nombre_rol'];?></td>
+                                            <td><button class="delete" data-user-id="<?php echo $roles['id_rol'];?>">Eliminar</button></td>
+                                        </tr>
+
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
                     </div>
 
             </main>
@@ -404,52 +838,8 @@
 
 </body>
 
-<form action="" id="none" style="display:none">
+<!-- <form action="" id="none" style="display:none">
     <input type="hidden" name="non">
-</form>
-<script src="../Js/sql1.js"></script>
-
-<script>
-
-    // function enviar_datos() {
-    //         $.ajax({
-    //             url: "update.php",
-    //             type: "POST",
-    //             data: $(".for").serialize(),
-    //             success: function (respo) {
-    //                 if(respo=="Si"){
-    //                     Good('Si');
-    //                 }
-    //                 else{
-    //                     Good('No');
-    //                 }
-                   
-    //             }
-    //         });
-    //     }
-
-    //     $("#registroo").click(function () {
-
-    //         enviarvalidacion();
-    //     });
-
-
-        // $(document).ready(function () {
-        //     // Función que se ejecuta cuando se envía un formulario
-        //     $('.modal').submit(function (event) {
-        //         event.preventDefault(); // Prevenir la acción predeterminada del envío del formulario (redireccionamiento)
-
-        //         var form_id = $(this).data('form'); // Obtener el identificador único del formulario
-
-        //         $.ajax({
-        //             url: 'modificar.php', // Ruta a tu script PHP que procesará los datos
-        //             type: 'POST', // Método HTTP que se utilizará para enviar la solicitud
-        //             data: $(this).serialize() + '&form_id=' + form_id, // Datos que se enviarán con la solicitud (en este caso, los datos del formulario y el identificador único)
-        //             success: function (respuesta) {
-        //                 $('#contain_tablas').html(respuesta); // Actualizar el contenido de la página web con la respuesta del servidor
-        //             },
-        //         });
-        //     });
-        // });
-</script>
+</form> -->
+<script src="../Js/sql3.js"></script>
 </html>
