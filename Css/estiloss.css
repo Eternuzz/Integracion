@@ -1,0 +1,518 @@
+@import url('https://fonts.googleapis.com/css2?family=Adamina&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Adamina", serif;
+    font-style: normal;
+}
+
+body {
+    background-color: #F9F9F9;
+    height: 99vh;
+}
+
+.general_todo{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-around;
+}
+
+.conheader {
+    width: 90%;
+    height: 15%;
+    display: flex;
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url(../Img/corner-4.png);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.logo{
+    width: 30%;
+    height: 100%;
+    display: flex;
+   
+}
+
+.img_logo{
+
+    background-image: url(../Img/logo.png);
+    width: 20%;
+    height: 60%;
+    background-size: 100% 100%;
+    margin-top: 5%;
+    margin-left: 10%;
+
+}
+
+.letras_logo{
+    width: 50%;
+    height: 100%;
+     margin-left: -6%;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    font-family: "Adamina", serif;
+    font-style: normal;
+    font-size: 130%;
+    
+}
+
+.datos_barra{
+    width: 30%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.img_notificaion
+{
+    width: 13%;
+    height: 60%;
+    background-image: url(../Img/alarma.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 90% 90%;
+
+}
+
+
+
+.img_usuario{
+    width: 15%;
+    height: 60%;
+    background-image: url(../Img/usuarios-50.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+
+
+
+.congeneral {
+    width: 90%;
+    height: 80%;
+    display: flex;
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+
+
+.con_menu {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-image: url(../Img/authentication-corner.png);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+
+}
+
+.cont_menu_sub{
+
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.inicio{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+
+}
+.con_imagen img{
+    width: 50%;
+    height: 30%;
+  
+}
+
+.con_opcion{
+    
+    width: 50%;
+    height: 30%;
+    text-align: center;
+    align-items: center;
+  
+}
+
+
+.secion1{
+    display: flex;
+}
+.seci_notificaiones{
+    width: 50%;
+    color: #8d8d8d;
+    
+
+}
+h2{
+    font-size: 60%;
+}
+h4{
+    font-size: 70%;
+}
+.linecita{
+    width: 50%;
+    height: 30%;
+   margin-top: 4.8%;
+}
+
+.con_menu a {
+    text-decoration: none; 
+    color: inherit; 
+    display: block; 
+}
+.icono_menu{
+    margin-left: 4%;
+}
+.icono_menu img {
+    width: 10%;
+    height: 10%;
+
+    
+}
+.select{
+    width: 100%;
+    border: none;
+    outline: none;
+    appearance: none;
+    background-color: blue;
+}
+
+/*----------------------------------------  estilos contenedor formulario -------------------------------------*/
+
+main {
+    height: 100%;
+    width: 76%;
+    display: flex;
+    flex-direction: column; 
+    overflow: hidden;
+    
+}
+
+.notificacioness,.historialcita{
+    width: 100%;
+    height: 100%; 
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+/*estilos notificaciones */
+
+
+.cont_titulo {
+    width: 98%;
+    height: 15%;
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    background-image: url(../Img/corner-4.png);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+    padding-left: 1%;
+}
+
+.cont_general_all{
+    width: 98%;
+    height: 80%;
+    display: block;
+    border-radius: 10px;
+    align-items: center;
+    background-image: url(../Img/corner-7.png);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    background-size: calc(100%)calc(100%);
+    background-position: bottom;
+    background-repeat: no-repeat;
+ 
+}
+
+/* estilos formularios agregar citas */
+
+.separar{
+    width: 100%;
+    height: 3%;
+}
+.preguntas_formulario{
+    width: 100%;
+    height: 17%;
+  
+    display: flex;
+    justify-content: space-between;
+}
+
+.preguntas_formularioo{
+    width: 100%;
+    height: 17%;
+  
+    display: flex;
+    justify-content: space-between;
+}
+
+.cont_preguntas{
+    
+    width: 33%;
+    height: 100%;
+   
+}
+
+
+
+
+
+
+.cont_preguntas {
+    margin-bottom: 20px; 
+}
+
+.cont_preguntas label {
+    display: block;
+    margin-bottom: 5px; /* Espacio entre el label y el input */
+    font-weight: bold;
+    margin-left: 5%;
+    font-size: 80%;
+}
+
+.cont_preguntas input {
+    width: 80%;
+    height: 40%;
+    padding: 8px; /* Ajusta el espacio dentro del input */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    box-sizing: border-box; /* Garantiza que el tamaño total sea correcto */
+    margin-left: 3%;
+}
+
+
+
+
+
+
+
+
+
+.cont_preguntas select,
+.cont_preguntas input[type="time"] {
+    width: 80%; /* Ancho del campo de entrada */
+    height: 40%; /* Altura del campo de entrada */
+    padding: 5px; /* Ajusta el espacio dentro del input */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+   font-size: 70%;
+    margin-left: 6%; /* Espacio a la izquierda */
+}
+
+
+.cont_preguntas img {
+    width: 60%px; /* Ancho deseado */
+    height: 50%; /* Altura ajustada automáticamente para mantener la proporción */
+    margin-left: 15%;
+}
+
+
+
+.con_opcion select {
+    width: 100%; /* Ancho del campo de entrada */
+    height: 100%; /* Altura del campo de entrada */
+   
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    font-size: 70%;
+    margin-left: 50%; /* Espacio a la izquierda */
+}
+
+.contenedor_hamburguesa{
+    display: none;
+}
+#closeMenu{
+    display: none;
+}
+
+
+/* diseño responcil */
+@media (max-width: 768px)  {
+      
+    
+    .contenedor_hamburguesa {
+        display: block; /* Cambiar a 'block' para que aparezca */
+         margin-top: -250%;
+        font-size: 80%;
+      }
+      
+      #toggleMenu {
+       background-color: transparent;
+        color: #000000; 
+        border: none; 
+        font-size: 300%; 
+        cursor: pointer; 
+        outline: none; 
+        margin-top: 80%;
+    }
+    
+
+      #closeMenu {
+        font-size: 30px; 
+        margin-left: 48%;
+        display: block;
+    }
+    
+
+/* header estilos */
+.img_logo{
+    width: 30%;
+    height: 30%;
+ margin-top: 18%;
+margin-left: 24%;
+
+}
+.letras_logo p{
+    margin-top: 70%;
+    margin-left: 20%;
+}
+
+.conheader{
+    width: 90%;
+    border: none;
+    background-image: none;
+    box-shadow: none;
+}
+.logo{
+    width: 50%;
+    height: 80%;
+    
+}
+.datos_barra p{
+    display: none;
+}
+.img_notificaion{
+    width: 30%;
+    height: 30%;
+    margin-top: -19%;
+}
+
+.img_usuario{
+    width: 30%;
+    height: 30%;
+    margin-left: 2%;
+    margin-top: -20%;
+}
+
+
+
+
+
+
+
+.con_menu {
+    
+    display: none; /* Ocultar el menú por defecto */
+}
+
+.con_menu.menu-abierto {
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    z-index: 999; /* Asegura que el menú esté por encima de otros elementos */
+    
+}
+hr{
+    display: none;
+}
+.seci_notificaiones{
+    display: none;
+}
+h4{
+    font-size: 130%;
+}
+.con_imagen{
+    display: none;
+}
+.inicio{
+    margin-left: 15%;
+    height: 20%;
+}
+
+.con_opcion select{
+    width: 100%;
+    height: 100%;
+    
+}
+
+
+.con_menu.menu-abierto .cont_menu_sub {
+   
+    margin-top: 20%; /* Ajusta el espacio superior */
+}
+
+
+
+.cont_titulo{
+    display: none;
+}
+
+
+main{
+   background-color: chartreuse;
+   width: 100%;
+   margin-left: -20%;
+}
+
+/*estilos formulario agregar cita*/
+.preguntas_formulario{
+    display: block;
+    width: 100%;
+    height: 20%;
+    background-color: aqua;
+}
+.preguntas_formularioo{
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+}
+
