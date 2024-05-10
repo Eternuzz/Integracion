@@ -160,7 +160,8 @@
                $.ajax({
                 url: "modificar.php",
                 type: "POST",
-                data: $("#none").serialize(),
+                // data: $("#none").serialize(),
+                data: $(".tf").serialize(),
                 success: function (respo) {
                   $('#contain_tablas').html(respo);
                    
