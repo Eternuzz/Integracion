@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medpriority ADMIN</title>
-    <link rel="stylesheet" href="../Css/admin9.css">
+    <link rel="stylesheet" href="../Css/admin.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -64,6 +64,81 @@
         <div class="modal-savebutton">
             <input type="hidden" name="id_a_cambiar">
             <button class="save-button"  data-modal-id="<?php echo $modalId;?>">Aplicar cambios</button>
+        </div>
+    </div>
+    
+            </div>
+<?php
+            }
+        }
+?>
+<div id="overlay"></div>
+
+<!-- -------------------------------MODAL CITAS------------------------------------------ -->
+
+<?php
+    require_once 'conexion.php';
+
+    $mod_cita = "SELECT * FROM citas_agendadas ca
+    INNER JOIN preagendamiento p ON ca.id_preagendamiento = p.id_preagendamiento 
+    INNER JOIN usuario u ON p.id_usuario = u.id_usuario
+    INNER JOIN tipo_cita tc ON p.id_tipo_cita = tc.id
+    INNER JOIN horarios h ON h.id_horario = p.hora_inicio";   //cita   //  TEST MODAL CITAS
+
+    $que = mysqli_query( $conn, $mod_cita );
+        if(mysqli_num_rows($que)>0){
+            while($mcita =mysqli_fetch_assoc($que)){
+                $modalcId = 'modalci_' . $mcita['id_usuario'];
+                $identici = $mcita['id_usuario'];
+
+                // --------------------------------------
+?>
+
+<div class="modal" id="<?php echo $modalcId?>">
+    <div class="modal-header">
+        <span><?php echo htmlspecialchars($mcita['nombre'])?></span>
+        <span><?php echo htmlspecialchars($identici)?></span>
+        <button id=chao data-close-button class="close-button">&times;</button>
+    </div>
+    
+    <div class="modal-body">
+        <div class="edit-modal">Identificacion Paciente
+            <input type="text" disabled required name=mc_idpaciente value="<?php echo htmlspecialchars($mcita['id_usuario'])?>">
+        </div>
+        <div class="edit-modal">Nombre Paciente
+            <input type="text" disabled required name=mc_namepaciente value="<?php echo htmlspecialchars($mcita['nombre'])?>">
+        </div>
+        <div class="edit-modal">Tipo de Cita
+            <input type="text" required name=mc_tipocita value="<?php echo htmlspecialchars($mcita['enombre'])?>">
+        </div>
+        <div class="edit-modal">Fecha (preagendamiento)
+            <input type="text" required name=mc_date value="<?php echo htmlspecialchars($mcita['fecha'])?>">
+        </div>
+        <div class="edit-modal">Hora inicio (preagendamiento)
+            <input type="text" disabled required name=mc_start_time value="<?php echo htmlspecialchars($mcita['hora_inicio'])?>">
+        </div>
+        <div class="edit-modal">Hora fin (preagendamiento)
+            <input type="text" required name=mc_end_time value="<?php 
+            $a = $mcita['hora_fin'];
+            
+            $mod_citah = "SELECT * FROM  horarios WHERE id_horario=$a";   //cita   //  TEST MODAL CITAS
+        
+            $quec = mysqli_query( $conn, $mod_citah );
+            if(mysqli_num_rows($quec)>0){
+                while($citahora = mysqli_fetch_assoc($quec)){
+                    echo htmlspecialchars($citahora['hora_inicio']);
+                }
+            }
+            
+            ?>">
+        </div>
+        <div class="edit-modal">Valoracion
+            <input type="text" required name=mc_valor value="<?php echo htmlspecialchars($mcita['valoracion'])?>">
+        </div>
+        
+        <div class="modal-savebutton">
+            <input type="hidden" name="id_a_cambiar">
+            <button class="save-button"  data-modal-id="<?php echo $modalcId;?>">Aplicar cambios</button>
         </div>
     </div>
     
@@ -555,6 +630,99 @@
 
                         <div class="cont_general_all">
                         
+                     <div class="separar"></div>
+                        <div class="preguntas_formulario">
+                          <div class="cont_preguntas"> 
+
+                            <label for="identificacion">Identificación:</label>
+                            <input type="text" id="identificacion" name="identificacion">
+
+                         </div>
+
+                          <div class="cont_preguntas">
+                            <label for="tipo_identificacion">Tipo de Identificación:</label>
+                            <input type="text" id="tipo_identificacion" name="tipo_identificacion">
+                        
+                        </div>
+                          <div class="cont_preguntas"> 
+                            <label for="nombre">Nombres:</label>
+                            <input type="text" id="nombre" name="nombre">
+                        
+                        </div>
+
+
+
+                        </div>
+                        <div class="preguntas_formulario">
+
+                            <div class="cont_preguntas"> 
+
+                                <label for="edad">Edad:</label>
+                                <input type="number" id="edad" name="edad">
+                             </div>
+    
+                              <div class="cont_preguntas">
+                                <label for="tipo_afiliacion">Tipo de Afiliación:</label>
+                                <input type="text" id="tipo_afiliacion" name="tipo_afiliacion">
+                            
+                            </div>
+                              <div class="cont_preguntas"> 
+                                <label for="trabajo">Trabajo:</label>
+                                <input type="text" id="trabajo" name="trabajo">
+                            
+                            </div>
+
+
+
+
+                        </div>
+                        <div class="preguntas_formulario">
+
+                            <div class="cont_preguntas">
+                                <label for="enfermedad">Enfermedad:</label>
+                                <input type="text" id="enfermedad" name="enfermedad">
+                            
+                            </div>
+                              <div class="cont_preguntas"> 
+                                <label for="nivel_gravedad">Nivel de Gravedad:</label>
+                                <input type="text" id="nivel_gravedad" name="nivel_gravedad">
+                            
+                            </div>
+                            <div class="cont_preguntas"></div>
+
+
+                        </div>
+
+                        <div class="preguntas_formularioo"> 
+                            <div class="cont_preguntas">
+                                <label for="tipo_cita">Tipo de Cita:</label>
+                                <select id="tipo_cita" name="tipo_cita">
+                                    <option value="normal">Normal</option>
+                                    <option value="urgente">Urgente</option>
+                                </select>
+
+                            </div>
+                            <div class="cont_preguntas">
+                                <label for="fecha">Fecha:</label>
+                                <input type="time" id="fecha" name="fecha">
+
+
+                            </div>
+                            <div class="cont_preguntas"> <label for="hora_inicio">Hora de Inicio:</label>
+                                <input type="time" id="hora_inicio" name="hora_inicio">
+                            </div>
+                            <div class="cont_preguntas">
+                                <label for="hora_final">Hora Final:</label>
+                                <input type="time" id="hora_final" name="hora_final">
+
+                            </div>
+                            <div class="cont_preguntas">
+                                <label for="hora_final">Agregar Cita:</label>
+                                <img src="../Img/logo.png" alt="">
+
+                            </div>
+
+                        </div>
 
                         </div>    
                     </div>
@@ -589,16 +757,16 @@
                                                 INNER JOIN usuario ON preagendamiento.id_usuario = usuario.id_usuario
                                                 INNER JOIN tipo_cita ON preagendamiento.id_tipo_cita = tipo_cita.id";   //cita
                                         $cita_query = mysqli_query($conn, $sql3);
-                                        if(mysqli_num_rows($consulta)>0){
-                                            while($pato =mysqli_fetch_assoc($cita_query)){
+                                        if(mysqli_num_rows($cita_query)>0){
+                                            while($modalci = mysqli_fetch_assoc($cita_query)){
                                         ?>
-                                        <tr id=table_row_<?php echo $pato['id_usuario']?>>
-                                            <td> <?php echo $pato['nombre'];?></td>
-                                            <td> <?php echo $pato['FechaAsignada'];?></td>
-                                            <td> <?php echo $pato['HoraAsignado'];?></td>
-                                            <td> <?php echo $pato['enombre'];?></td>
-                                            <td><button data-modal-target="#modal_<?php echo $pato['id_usuario'];?>">Detalles</button></td>
-                                            <td><button class="delete" data-user-id="<?php echo $pato['id_usuario'];?>" data-role='3'>Eliminar</button></td>
+                                        <tr id=table_row_<?php echo $modalci['id_usuario']?>>
+                                            <td> <?php echo $modalci['nombre'];?></td>
+                                            <td> <?php echo $modalci['FechaAsignada'];?></td>
+                                            <td> <?php echo $modalci['HoraAsignado'];?></td>
+                                            <td> <?php echo $modalci['enombre'];?></td>
+                                            <td><button data-modal-target="#modalci_<?php echo $modalci['id_usuario'];?>">Detalles</button></td>
+                                            <td><button class="delete" data-user-id="<?php echo $modalci['id_usuario'];?>" data-role='3'>Eliminar</button></td>
                                         </tr>
 
                                         <?php
@@ -841,5 +1009,5 @@
 <!-- <form action="" id="none" style="display:none">
     <input type="hidden" name="non">
 </form> -->
-<script src="../Js/sql3.js"></script>
+<script src="../Js/sql.js"></script>
 </html>
