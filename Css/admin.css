@@ -552,6 +552,15 @@ table button{
     justify-self: end;
 }
 
+.edit-modal select{
+    background-color: #D9D9D9;
+    height: 50%;
+    width: 40%;
+    border-radius: 15px;
+    border: transparent;
+    padding-left: 3%;
+}
+
 /* -------------------------ADD CITA-------------------------------- */
 
 .separar{

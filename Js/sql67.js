@@ -158,7 +158,7 @@
     modal.classList.remove('active')
     overlay.classList.remove('active')
                $.ajax({
-                url: "modificar.php",
+                url: "tabla_medico.php",
                 type: "POST",
                 // data: $("#none").serialize(),
                 data: $(".tf").serialize(),
