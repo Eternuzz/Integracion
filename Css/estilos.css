@@ -192,6 +192,35 @@ h4{
 
     
 }
+
+li{
+ list-style: none;
+}
+
+
+
+ul li :hover ul {
+    height: auto;
+    
+}
+nav ul ul li {
+    height: 0px;
+    overflow: hidden;
+   
+    
+}
+nav ul:hover ul li {
+    height: auto; 
+    
+}
+
+#citta{
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    width: 100%;
+}
+
+
 .select{
     width: 100%;
     border: none;
@@ -282,11 +311,6 @@ main {
    
 }
 
-
-
-
-
-
 .cont_preguntas {
     margin-bottom: 20px; 
 }
@@ -298,70 +322,93 @@ main {
     margin-left: 5%;
     font-size: 80%;
 }
+/*-----------------------estilos para los input -----------------------------*/
 
 .cont_preguntas input {
     width: 80%;
     height: 40%;
-    padding: 8px; /* Ajusta el espacio dentro del input */
+    padding: 8px; 
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    box-sizing: border-box; /* Garantiza que el tamaño total sea correcto */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); 
+    box-sizing: border-box; 
     margin-left: 3%;
 }
 
-
-
-
-
-
-
-
-
 .cont_preguntas select,
 .cont_preguntas input[type="time"] {
-    width: 80%; /* Ancho del campo de entrada */
-    height: 40%; /* Altura del campo de entrada */
-    padding: 5px; /* Ajusta el espacio dentro del input */
+    width: 80%; 
+    height: 40%; 
+    padding: 5px; 
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); 
    font-size: 70%;
-    margin-left: 6%; /* Espacio a la izquierda */
+    margin-left: 6%; 
 }
-
-
+/*------------------------------------------------------------------------------------*/
+/*-----------------------------------------imagen para agregar citas------------------------------------------*/
 .cont_preguntas img {
-    width: 60%px; /* Ancho deseado */
-    height: 50%; /* Altura ajustada automáticamente para mantener la proporción */
+    width: 60%px; 
+    height: 50%; 
     margin-left: 15%;
 }
 
-
-
 .con_opcion select {
-    width: 100%; /* Ancho del campo de entrada */
-    height: 100%; /* Altura del campo de entrada */
+    width: 100%; 
+    height: 100%; 
    
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); 
     font-size: 70%;
-    margin-left: 50%; /* Espacio a la izquierda */
+    margin-left: 50%; 
 }
 
+.cont_preguntass{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+/*--------------------------------------estilos para el boton agregar cita------------------------------------ */
+.cont_preguntass button {
+    border-radius: 5px;
+    background-color: rgb(9, 150, 9); 
+    padding: 10px 20px; 
+    border: none; 
+    cursor: pointer; 
+    color: white;
+    margin-top: -4%;
+    
+}
+
+
+/*-----------------------contenedores para el menu en responcil hamburgesa-------------------------- */
 .contenedor_hamburguesa{
     display: none;
 }
 #closeMenu{
     display: none;
 }
+/*---------------------------------------------------------------------------------------------------*/
 
 
 /* diseño responcil */
 @media (max-width: 768px)  {
-      
-    
+    /*-------------------------------estilos genereales --------------------*/
+
+     main{
+        width: 100%;
+        margin-left: -20%;
+        overflow: hidden;
+        height: 100%;    
+     }
+
+
+     
     .contenedor_hamburguesa {
         display: block; /* Cambiar a 'block' para que aparezca */
          margin-top: -250%;
@@ -375,16 +422,20 @@ main {
         font-size: 300%; 
         cursor: pointer; 
         outline: none; 
-        margin-top: 80%;
+        margin-top: -4%;
+        position: fixed;
+        z-index: 9999; 
     }
     
 
       #closeMenu {
-        font-size: 30px; 
+        font-size: 35px; 
         margin-left: 48%;
         display: block;
+        color: black;
     }
     
+/*----------------------------------------------------------------------------------------------------------*/
 
 /* header estilos */
 .img_logo{
@@ -427,16 +478,17 @@ margin-left: 24%;
 }
 
 
-
+/*------------------------------------------------*/
 
 
 
 
 .con_menu {
     
-    display: none; /* Ocultar el menú por defecto */
+    display: none; 
 }
 
+/*estilos del menu*/
 .con_menu.menu-abierto {
    
     display: flex;
@@ -448,8 +500,8 @@ margin-left: 24%;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(255, 255, 255);
-    z-index: 999; /* Asegura que el menú esté por encima de otros elementos */
+    background-color: rgb(236, 236, 236);
+    z-index: 999; 
     
 }
 hr{
@@ -478,7 +530,7 @@ h4{
 
 .con_menu.menu-abierto .cont_menu_sub {
    
-    margin-top: 20%; /* Ajusta el espacio superior */
+    margin-top: 20%; 
 }
 
 
@@ -486,32 +538,134 @@ h4{
 .cont_titulo{
     display: none;
 }
-
-
-main{
-   background-color: chartreuse;
-   width: 100%;
-   margin-left: -20%;
+/* linea de saparar*/
+.separar{
+    display: none;
+    
 }
+
+ /*contenedor del formulario */
+.cont_general_all{
+    margin-top: -40%;
+    border: none;
+    background-image: none;
+    box-shadow: none;
+    overflow: scroll;
+    height: 80%;
+}
+
+
 
 /*estilos formulario agregar cita*/
 .preguntas_formulario{
     display: block;
     width: 100%;
-    height: 20%;
-    background-color: aqua;
+    height: 30%;
+   
+   
 }
 .preguntas_formularioo{
     display: block;
+    width: 100%;
+    height: 30%;
+}
+.preguntas_formularioo + .preguntas_formularioo {
+    margin-top: 80%; 
+}
+.cont_preguntas{
+   
+    width: 100%;
+    height: 55%;
+    margin-top: 20%;
+   
 }
 
 
+/* manejar las pociciones de los contenedores de el formulario */
+
+.cont_preguntass button{
+    margin-top: 120%;
+    }
+    
+#identificacion{
+    margin-top: -15%;
+}
+#tipo_identificacion {
+
+    margin-top: -8%;
+}
+#nombre{
+    margin-top: -8%; 
+}
+#edad{
+    margin-top: 2%; 
+}
+#tipo_afiliacion{
+    margin-top: -6%; 
+}
+#trabajo{
+    margin-top: -10%;
+}
+#enfermedads{
+    margin-top: 20%; 
+}
+
+#nivel_gravedad{
+    margin-top: -10%;
+}
+
+#fecha{
+    margin-top: -7%; 
+}
+#hora_inicio{
+    margin-top: -7%; 
+}
+#hora_final{
+    margin-top: -7%; 
+}
+
+#agregar{
+    margin-top: -23%; 
+}
+
+#incio{
+    transition: transform 0.3s;
+}
+#incio:hover{
+    transform: scale(1.2);
+}
 
 
+#notificaciones{
+    margin-top: -25%; 
+    transition: transform 0.3s;
+}
+#notificaciones:hover {
+    transform: scale(1.2); 
+}
 
 
+#historia_clinica{
+    margin-top: -50%; 
+    transition: transform 0.3s;
+}
+#historia_clinica:hover {
+    transform: scale(1.2); 
+}
 
 
+#citta{
+ margin-top: -130%;
+ margin-left: 20%;
+
+}
+.agrega{
+    margin-left: 5%;
+}
+
+ul li{
+   padding: 5px 5px;
+}
 
 
 }

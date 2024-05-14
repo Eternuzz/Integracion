@@ -37,7 +37,7 @@ session_start();
              
                 <?php if(isset ($_SESSION['autenticado']) && $_SESSION['autenticado']==true):?>
 
-                    <a href="./Php/Usuario.php" class="opcion1">Agendar Cita</a>
+                    <a href="./Php/Usuario2.php" class="opcion1">Agendar Cita</a>
                     <a href="#" class="sesion" id="user"><?php echo htmlspecialchars($_SESSION['nombre']) ?></a> <!--Boton de sesion-->
                     <a href="#" class="sesion" id="sesion1" style="display:none">Iniciar Sesión</a> <!--Boton de sesion-->
 
