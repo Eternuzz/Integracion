@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medpriority ADMIN</title>
-    <link rel="stylesheet" href="../Css/adminpro.css">
+    <link rel="stylesheet" href="../Css/admin.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -80,7 +80,6 @@
     require_once 'conexion.php';
 
     $mod_cita = "SELECT * FROM preagendamiento p
-    INNER JOIN citas_agendadas ca ON ca.id_preagendamiento = p.id_preagendamiento 
     INNER JOIN usuario u ON p.id_usuario = u.id_usuario
     INNER JOIN tipo_cita tc ON p.id_tipo_cita = tc.id
     INNER JOIN horarios h ON h.id_horario = p.hora_inicio";   //cita   //  TEST MODAL CITAS
@@ -110,10 +109,27 @@
             <input type="text" disabled required name=mc_namepaciente value="<?php echo htmlspecialchars($mcita['nombre'])?>">
         </div>
         <div class="edit-modal">Tipo de Cita
-            <input type="text" required name=mc_tipocita value="<?php echo htmlspecialchars($mcita['enombre'])?>">
+            <select name=mc_tipocita>
+                <?php 
+                    $q_mcita = "SELECT * FROM tipo_cita";
+                    $selmcita = mysqli_query( $conn, $q_mcita );
+                    if(mysqli_num_rows($selmcita)>0){
+                        while($selectmcita = mysqli_fetch_assoc($selmcita)){
+
+                        $bot = ($selectmcita['id'] == $mcita['id']) ? 'selected' : '';
+                ?>        
+                    <option value="<?php echo $selectmcita['id']; ?>" <?php echo $bot?>>
+                    <?php echo htmlspecialchars($selectmcita['enombre'])?>
+                    </option>
+
+                <?php
+                        }
+                    }
+                ?>
+            </select>
         </div>
         <div class="edit-modal">Fecha (preagendamiento)
-            <input type="text" required name=mc_date value="<?php echo htmlspecialchars($mcita['fecha'])?>">
+            <input type="date" required name=mc_date value="<?php echo htmlspecialchars($mcita['fecha'])?>">
         </div>
         <?php 
             $default = $mcita['id_horario'];
@@ -178,7 +194,7 @@
         
         <div class="modal-savebutton">
             <input type="hidden" name="id_a_cambiar">
-            <button class="save-button" id="save-user" data-modal-id="<?php echo $modalcId;?>">Aplicar cambios</button>
+            <button class="save-button" id="save-preagendamiento" data-modal-id="<?php echo $modalcId;?>">Aplicar cambios</button>
         </div>
     </div>
     
@@ -931,14 +947,14 @@
                         </div>
                         <div class="cont_general_all">
 
-                            <div class="panel-main" id="contain_tablas"> 
+                            <div class="panel-main" id="contain_tabla_preagendamiento"> 
                                 <table>
                                     <thead>
                                     <tr>
-                                        <th>Ident. Paciente</th>
+                                        <th>Id PreAgendamiento</th>
                                         <th>Nombre Paciente</th>
                                         <th>Fecha</th>
-                                        <th>Hora</th>
+                                        <th>Registro</th>
                                         <th>Tipo Cita</th>
                                         <th style="width: 15%;"></th>
                                         <th style="width: 15%;"></th>
@@ -951,21 +967,20 @@
                                         require_once 'conexion.php';
 
                                         $sql99 = "SELECT * FROM preagendamiento
-                                                INNER JOIN citas_agendadas ON preagendamiento.id_preagendamiento = citas_agendadas.id_preagendamiento
                                                 INNER JOIN usuario ON preagendamiento.id_usuario = usuario.id_usuario
                                                 INNER JOIN tipo_cita ON preagendamiento.id_tipo_cita = tipo_cita.id";   //cita
                                         $cita_query = mysqli_query($conn, $sql99);
                                         if(mysqli_num_rows($cita_query)>0){
                                             while($modalci = mysqli_fetch_assoc($cita_query)){
                                         ?>
-                                        <tr id=table_row_<?php echo $modalci['id_usuario']?>>
-                                            <td> <?php echo $modalci['id_usuario'];?></td>
+                                        <tr id=precitatable_row_<?php echo $modalci['id_usuario']?>>
+                                            <td> <?php echo $modalci['id_preagendamiento'];?></td>
                                             <td> <?php echo $modalci['nombre'];?></td>
-                                            <td> <?php echo $modalci['FechaAsignada'];?></td>
-                                            <td> <?php echo $modalci['HoraAsignado'];?></td>
+                                            <td> <?php echo $modalci['fecha'];?></td>
+                                            <td> <?php echo $modalci['registro'];?></td>
                                             <td> <?php echo $modalci['enombre'];?></td>
                                             <td><button data-modal-target="#modalci_<?php echo $modalci['id_preagendamiento'];?>">Detalles</button></td>
-                                            <td><button class="delete" id=delete data-user-id="<?php echo $modalci['id_usuario'];?>" data-role='3'>Eliminar</button></td>
+                                            <td><button class="delete" id=delete data-user-id="<?php echo $modalci['id_preagendamiento'];?>" data-role='preagendamiento'>Eliminar</button></td>
                                         </tr>
 
                                         <?php
@@ -987,7 +1002,7 @@
                         </div>
                         <div class="cont_general_all">
 
-                            <div class="panel-main" id="contain_tablas"> 
+                            <div class="panel-main" id="contain_tabla_citas"> 
                                 <table>
                                     <thead>
                                     <tr>
@@ -1300,5 +1315,5 @@
     </section>
 
 </body>
-<script src="../Js/sqli.js"></script>
+<script src="../Js/sql.js"></script>
 </html>

@@ -256,6 +256,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     var tipoctableRow = document.getElementById("tipoctable_row_" + userId);
                     var specialtableRow = document.getElementById("specialtable_row_" + userId);
                     var roletableRow = document.getElementById("roletable_row_" + userId);
+                    var precitatableRow = document.getElementById("precitatable_row_" + userId);
+                    var citatableRow = document.getElementById("citatable_row_" + userId);
 
                     if (tableRow && (userRole == 'usuario' || userRole=='medico')) {
                         tableRow.remove();
@@ -280,6 +282,18 @@ document.addEventListener('DOMContentLoaded', function() {
                                     if(roletableRow && userRole == 'rol'){
                                         roletableRow.remove();
                                         console.log('rolchao');
+                                    }
+                                    else{
+                                        if(precitatableRow && userRole == 'preagendamiento'){
+                                            precitatableRow.remove();
+                                            console.log('precitachao');
+                                        }
+                                        else{
+                                            if (citatableRow && userRole == 'cita') {
+                                                citatableRow.remove();
+                                                console.log('citachao');
+                                            }
+                                        }
                                     }
                                 }
                             } 
@@ -364,6 +378,46 @@ function closeModal(modal) {
             xhr.send(JSON.stringify(data));
         }
     });
+
+    // -----------------------UPDATE PRE-CITA-------------------------
+
+    document.addEventListener("click", function(event) {
+        // Get the modal id associated with this button
+        if(event.target.classList.contains('save-button') && event.target.id === 'save-preagendamiento') {
+            // Get the modal id associated with this button
+            console.log("heroico insano")
+            var modalId = event.target.getAttribute('data-modal-id');
+            
+            // Find all input fields within the modal
+            var modal = document.getElementById(modalId);
+            var inputs = modal.querySelectorAll('input, select');
+
+            // Prepare data object to send via AJAX
+            var appointment = {};
+            inputs.forEach(input => {
+                appointment[input.name] = input.value;
+            });
+
+            // Send AJAX request to update user data
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "update_preagendamiento.php", true);
+            // Set Content-Type header for JSON data
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        // Handle successful response
+                        alert('Data Updated');
+                    } else {
+                        // Handle error response
+                        alert('Error occurred while updating data');
+                    }
+                }
+            };
+            xhr.send(JSON.stringify(appointment));
+        }
+    });
+
 
 
 // -----------------------UPDATE PATOLOGIA-------------------------
@@ -540,91 +594,39 @@ function tabla_especialidades() {
   });
 }
 
+function tabla_citas() {
+  $.ajax({
+  url: "ajax_tabla_citas.php",
+  type: "POST",
+  data: $("#none").serialize(),
+  success: function (respo) {
+    $('#contain_tabla_citas').html(respo);
+  }
+  });
+}
+
+function tabla_preagendamiento() {
+  $.ajax({
+  url: "ajax_tabla_preagendamiento.php",
+  type: "POST",
+  data: $("#none").serialize(),
+  success: function (respo) {
+    $('#contain_tabla_preagendamiento').html(respo);
+  }
+  });
+}
+
 // update modal paciente and doctor
 
-// $(".save-button, #save-user, #save-patologia, #save-typecita, #guardar-button, #paciente-nuevo, #guardar-pato, #guardar-citatype, #save-especial, #guardar-espe").click(function () {
-//     tabla_medico();
-//     tabla_paciente();
-//     tabla_patologia();
-//     tabla_tipocitas();
-//     tabla_especialidades();
-// });
-$(".save-button").click(function () {
+$(".save-button, #save-user, #save-patologia, #save-typecita, #guardar-button, #paciente-nuevo, #guardar-pato, #guardar-citatype, #save-especial, #guardar-espe, #cita-nueva, #save-preagendamiento").click(function () {
     tabla_medico();
     tabla_paciente();
     tabla_patologia();
     tabla_tipocitas();
     tabla_especialidades();
+    tabla_citas();
+    tabla_preagendamiento();
 });
-$(".save-pat-button").click(function () {
-    tabla_medico();
-    tabla_paciente();
-    tabla_patologia();
-    tabla_tipocitas();
-    tabla_especialidades();
-});
-$("#save-user").click(function () {
-    tabla_medico();
-    tabla_paciente();
-    tabla_patologia();
-    tabla_tipocitas();
-    tabla_especialidades();
-});
-$("#save-patologia").click(function () {
-    tabla_medico();
-    tabla_paciente();
-    tabla_patologia();
-    tabla_tipocitas();
-    tabla_especialidades();
-});
-$("#save-typecita").click(function () {
-    tabla_medico();
-    tabla_paciente();
-    tabla_patologia();
-    tabla_tipocitas();
-    tabla_especialidades();
-});
-$("#guardar-button").click(function () {
-    tabla_medico();
-    tabla_paciente();
-    tabla_patologia();
-    tabla_tipocitas();
-    tabla_especialidades();
-});
-$("#paciente-nuevo").click(function () {
-    tabla_medico();
-    tabla_paciente();
-    tabla_patologia();
-    tabla_tipocitas();
-    tabla_especialidades();
-});
-$("#guardar-pato").click(function () {
-    tabla_medico();
-    tabla_paciente();
-    tabla_patologia();
-    tabla_tipocitas();
-    tabla_especialidades();
-});
-$("#guardar-citatype").click(function () {
-    tabla_medico();
-    tabla_paciente();
-    tabla_patologia();
-    tabla_tipocitas();
-    tabla_especialidades();
-});
-$("#save-especial").click(function () {
-    tabla_medico();
-    tabla_paciente();
-    tabla_patologia();
-    tabla_tipocitas();
-    tabla_especialidades();
-});
-$("#guardar-espe").click(function () {
-    tabla_medico();
-    tabla_paciente();
-    tabla_patologia();
-    tabla_tipocitas();
-    tabla_especialidades();
-});
+
 
 });

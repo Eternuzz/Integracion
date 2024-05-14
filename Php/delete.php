@@ -160,6 +160,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
 
+
+    // ----------------DELETE PRE-CITA(preagendamiento)------------------------
+    
+    $stmt17 = mysqli_prepare($conn, "DELETE FROM preagendamiento WHERE id_preagendamiento = ?");
+    mysqli_stmt_bind_param($stmt17, "i", $userId);
+
+    if ($userRole == "preagendamiento") {
+        mysqli_stmt_execute($stmt17);
+        if (mysqli_stmt_affected_rows($stmt17) > 0) {
+        // Send a success response
+        echo "PRECITA deleted successfully";
+        } else {
+        // Send an error response
+        echo "Error deleting PRECITA";
+        }
+    }
+
     // -----------------------CLOSE----------------------------------
 
     // Close the statement and connection
@@ -179,6 +196,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     mysqli_stmt_close($stmt14);
     mysqli_stmt_close($stmt15);
     mysqli_stmt_close($stmt16);
+    mysqli_stmt_close($stmt17);
 
     mysqli_close($conn);
 }
