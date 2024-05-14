@@ -128,6 +128,7 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
+    overflow: auto;
 }
 .inicio{
     /* border: 1px solid fuchsia; */
@@ -136,6 +137,7 @@ body {
     display: flex;
     text-align: center;
     align-items: center;
+    flex:none;
 
 }
 .con_imagen img{
@@ -157,6 +159,7 @@ body {
 
 .secion1{
     display: flex;
+    flex: none;
 }
 .seci_notificaiones{
     width: 50%;
@@ -547,4 +550,147 @@ table button{
     border: transparent;
     padding-left: 3%;
     justify-self: end;
+}
+
+.edit-modal select{
+    background-color: #D9D9D9;
+    height: 50%;
+    width: 40%;
+    border-radius: 15px;
+    border: transparent;
+    padding-left: 3%;
+}
+
+/* -------------------------ADD CITA-------------------------------- */
+
+.separar{
+    width: 100%;
+    height: 3%;
+}
+.preguntas_formulario{
+    width: 100%;
+    height: 17%;
+  
+    display: flex;
+    justify-content: space-between;
+}
+
+.preguntas_formularioo{
+    width: 100%;
+    height: 17%;
+  
+    display: flex;
+    justify-content: space-between;
+}
+
+.cont_preguntas{
+    width: 33%;
+    height: 100%;
+    /* border: 1px solid red; */
+}
+
+.cont_preguntas_search{
+    /* border: 1px solid green; */
+    width: 33%;
+    height: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.search{
+    /* border: 1px solid blue; */
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-self: flex-end;
+}
+
+.search-img{
+    height:40%;
+    width: 20%;
+    background-size: 100% 100%;
+    background-image: url(../Img/search.png);
+    /* border: 1px solid; */
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+}
+
+.search-img:hover{
+    cursor: pointer;
+}
+
+.cont_preguntas {
+    margin-bottom: 20px; 
+}
+
+.cont_preguntas label {
+    display: block;
+    margin-bottom: 5px; /* Espacio entre el label y el input */
+    font-weight: bold;
+    margin-left: 5%;
+    font-size: 80%;
+}
+
+.cont_preguntas_search label {
+    display: block;
+    margin-bottom: 5px; /* Espacio entre el label y el input */
+    font-weight: bold;
+    margin-left: 5%;
+    font-size: 80%;
+}
+
+.cont_preguntas input {
+    width: 80%;
+    height: 40%;
+    padding: 8px; /* Ajusta el espacio dentro del input */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    box-sizing: border-box; /* Garantiza que el tamaño total sea correcto */
+    margin-left: 3%;
+}
+
+.cont_preguntas_search input {
+    width: 80%;
+    height: 40%;
+    padding: 8px; /* Ajusta el espacio dentro del input */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    box-sizing: border-box; /* Garantiza que el tamaño total sea correcto */
+    margin-left: 3%;
+}
+
+.cont_preguntas select, input[type="time"] {
+    width: 80%; /* Ancho del campo de entrada */
+    height: 40%; /* Altura del campo de entrada */
+    padding: 5px; /* Ajusta el espacio dentro del input */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+   font-size: 70%;
+    margin-left: 6%; /* Espacio a la izquierda */
+}
+
+
+.cont_preguntas-search, .cont_preguntas img {
+    width: 60%px; /* Ancho deseado */
+    height: 50%; /* Altura ajustada automáticamente para mantener la proporción */
+    margin-left: 15%;
+}
+
+
+
+.con_opcion select {
+    width: 100%; /* Ancho del campo de entrada */
+    height: 100%; /* Altura del campo de entrada */
+   
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    font-size: 70%;
+    margin-left: 50%; /* Espacio a la izquierda */
 }
