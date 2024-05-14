@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medpriority ADMIN</title>
-    <link rel="stylesheet" href="../Css/admin.css">
+    <link rel="stylesheet" href="../Css/adminpro.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -273,6 +273,51 @@
         }
 ?>
 
+<!-- -------------------------------MODAL ESPECIALIDAD------------------------------------------ -->
+
+<?php
+    require_once 'conexion.php';
+
+    $mod_especial = "SELECT * FROM especialidades";   //jiji
+    $query_special = mysqli_query( $conn, $mod_especial );
+        if(mysqli_num_rows($query_special)>0){
+            while($special =mysqli_fetch_assoc($query_special)){
+                $modalId = 'modalspecial_' . $special['id_especialidad'];
+                $identispe = $special['id_especialidad'];
+
+                // --------------------------------------
+?>
+
+<div class="modal" id="<?php echo $modalId?>">
+    <div class="modal-header">
+        <span><?php echo htmlspecialchars($special['especialidad'])?></span>
+        <span><?php echo htmlspecialchars($identispe)?></span>
+        <button id=chao data-close-button class="close-button">&times;</button>
+    </div>
+    
+    <div class="modal-body">
+        <div class="edit-modal">ID Especialidad
+            <input type="email" disabled name=ms_id value="<?php echo htmlspecialchars($special['id_especialidad'])?>">
+        </div>
+        <div class="edit-modal">Nombre Especialidad
+            <input type="email" required name=ms_name value="<?php echo htmlspecialchars($special['especialidad'])?>">
+        </div>
+        <div class="modal-savebutton">
+            <input type="hidden" name="id_a_cambiar">
+            <button class="save-button" id="save-especial" data-modal-id="<?php echo $modalId;?>">Aplicar cambios</button>
+        </div>
+    </div>
+    
+            </div>
+<?php
+            }
+        }
+?>
+
+<!-- -----------------------------------------CONTENT----------------------------------- -->
+<!-- -----------------------------------------CONTENT----------------------------------- -->
+<!-- -----------------------------------------CONTENT----------------------------------- -->
+<!-- -----------------------------------------CONTENT----------------------------------- -->
 <!-- -----------------------------------------CONTENT----------------------------------- -->
     <section class="general_todo">
         <div class="conheader">  <!-- contenedor header o barra principal -->
@@ -546,9 +591,7 @@
                         </div>
                         
                         <div class="cont_general_all">
-                            since youve been like this.
-                            <BR>
-                            baby i dont wanna really be in like this.
+                            valorant is life
                         </div>
                     </div>
 
@@ -631,7 +674,7 @@
                                             <td> <?php echo $fila['edad'];?></td>
                                             <td> <?php echo $fila['telefono'];?></td>
                                             <td><button data-modal-target="#modal_<?php echo $fila['id_usuario'];?>">Detalles</button></td>
-                                            <td><button class="delete" data-user-id="<?php echo $fila['id_usuario'];?>" data-role='3'>Eliminar</button></td>
+                                            <td><button class="delete" id=delete data-user-id="<?php echo $fila['id_usuario'];?>" data-role='medico'>Eliminar</button></td>
                                         </tr>
 
                                         <?php
@@ -741,7 +784,7 @@
                                     <td><?php echo $row['edad'];?></td>
                                     <td><?php echo $row['genero'];?></td>
                                     <td><button data-modal-target="#modal_<?php echo $row['id_usuario'];?>">Detalles</button></td>
-                                    <td><button class="delete" data-user-id="<?php echo $row['id_usuario'];?>" data-role='2'>Eliminar</button></td>
+                                    <td><button class="delete" id=delete data-user-id="<?php echo $row['id_usuario'];?>" data-role='usuario'>Eliminar</button></td>
                                 </tr>
                                     
                                 <?php
@@ -764,45 +807,45 @@
                         <div class="cont_general_all">
                                 
                             <div class="preguntas_formulario">
-                                <div class="cont_preguntas"> 
+                                <div class="cont_preguntas_search"> 
                                     <label for="identificacion">Identificación:</label>
-                                    <input type="text" name="identi_cita">
+                                    <div class="search">
+                                        <input type="text" name="identi_cita">
+                                        <div class="search-img"></div>
+                                    </div>
                                 </div>
                                 <div class="cont_preguntas">
                                     <label for="tipo_identificacion">Tipo de Identificación:</label>
-                                    <input type="text" name="type_id_cita">
+                                    <input type="text" disabled ="type_id_cita">
                                 </div>
                                 <div class="cont_preguntas"> 
                                     <label for="nombre">Nombres:</label>
-                                    <input type="text" name="name_cita">
+                                    <input type="text" disabled name="name_cita">
                                 </div>
                             </div>
 
                             <div class="preguntas_formulario">
                                 <div class="cont_preguntas"> 
                                     <label for="edad">Edad:</label>
-                                    <input type="number" name="edad_cita">
+                                    <input type="number" disabled name="edad_cita">
                                 </div>
                                 <div class="cont_preguntas">
                                     <label for="tipo_afiliacion">Tipo de Afiliación:</label>
-                                    <select name="tipo_afiliacion_cita">
-                                        <option value="Subsidiado">Subsidiado</option>
-                                        <option value="Contributivo">Contributivo</option>
-                                    </select>
+                                    <input disabled name="tipo_afiliacion_cita">
                                 </div>
                                 <div class="cont_preguntas"> 
-                                    <label for="trabajo">Trabajo:</label>
-                                    <input type="text" name="trabajo">
+                                    <label for="trabajo">Trabajo:</label> <!-- NOT IN DATABASE -->
+                                    <input disabled type="text" name="trabajo">
                                 </div>
                             </div>
 
                             <div class="preguntas_formulario">
                                 <div class="cont_preguntas">
-                                    <label for="enfermedad">Enfermedad:</label>
+                                    <label for="enfermedad">Enfermedad:</label> <!-- NOT IN DATABASE -->
                                     <input type="text" name="enfermedad">
                                 </div>
                                 <div class="cont_preguntas"> 
-                                    <label for="nivel_gravedad">Nivel de Gravedad:</label> 
+                                    <label for="nivel_gravedad">Nivel de Gravedad:</label> <!-- NOT IN DATABASE -->
                                     <input type="text" name="nivel_gravedad">
                                 </div>
                                 <div class="cont_preguntas"></div>
@@ -812,26 +855,68 @@
                                 <div class="cont_preguntas">
                                     <label for="tipo_cita">Tipo de Cita:</label>
                                     <select name="tipo_cita">
-                                        <option value="normal">Normal</option>
-                                        <option value="urgente">Urgente</option>
+                                        <?php 
+                                            $q_cita = "SELECT * FROM tipo_cita";
+                                            $selcita = mysqli_query( $conn, $q_cita );
+                                            if(mysqli_num_rows($selcita)>0){
+                                                while($selectcita = mysqli_fetch_assoc($selcita)){
+                                        ?>        
+                                            <option value="<?php echo $selectcita['id']; ?>">
+                                            <?php echo htmlspecialchars($selectcita['enombre'])?>
+                                            </option>
+
+                                        <?php
+                                                }
+                                            }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="cont_preguntas">
                                     <label for="fecha">Fecha:</label>
-                                    <input type="date" name="fecha">
+                                    <input type="date" name="fecha_cita">
                                 </div>
                                 <div class="cont_preguntas">
                                     <label for="hora_inicio">Hora de Inicio:</label>
-                                    <input type="time" name="hora_inicio">
+                                    <select name="hora_inicio">
+                                        <?php 
+                                            $q_horas = "SELECT * FROM horarios";
+                                            $sel = mysqli_query( $conn, $q_horas );
+                                            if(mysqli_num_rows($sel)>0){
+                                                while($select = mysqli_fetch_assoc($sel)){
+                                        ?>        
+                                            <option value="<?php echo $select['id_horario']; ?>">
+                                            <?php echo htmlspecialchars($select['hora_inicio'])?>
+                                            </option>
+
+                                        <?php
+                                                }
+                                            }
+                                        ?>
+                                    </select>
                                 </div>
                                 <div class="cont_preguntas">
                                     <label for="hora_final">Hora Final:</label>
-                                    <input type="time" name="hora_final">
+                                    <select name="hora_final">
+                                    <?php 
+                                        $q_horas = "SELECT * FROM horarios";
+                                        $sel = mysqli_query( $conn, $q_horas );
+                                        if(mysqli_num_rows($sel)>0){
+                                            while($select = mysqli_fetch_assoc($sel)){
+                                    ?>        
+                                        <option value="<?php echo $select['id_horario']; ?>">
+                                        <?php echo htmlspecialchars($select['hora_inicio'])?>
+                                        </option>
+
+                                    <?php
+                                            }
+                                        }
+                                    ?>
+                                    </select>
                                 </div>
                                     
                             </div>
                             <div class="save">
-                                <div class="save-button">
+                                <div class="save-button" id="cita-nueva">
                                     <a href="#">Agregar Cita</a>
                                 </div>
                             </div>
@@ -865,11 +950,11 @@
                                         
                                         require_once 'conexion.php';
 
-                                        $sql3 = "SELECT * FROM preagendamiento
+                                        $sql99 = "SELECT * FROM preagendamiento
                                                 INNER JOIN citas_agendadas ON preagendamiento.id_preagendamiento = citas_agendadas.id_preagendamiento
                                                 INNER JOIN usuario ON preagendamiento.id_usuario = usuario.id_usuario
                                                 INNER JOIN tipo_cita ON preagendamiento.id_tipo_cita = tipo_cita.id";   //cita
-                                        $cita_query = mysqli_query($conn, $sql3);
+                                        $cita_query = mysqli_query($conn, $sql99);
                                         if(mysqli_num_rows($cita_query)>0){
                                             while($modalci = mysqli_fetch_assoc($cita_query)){
                                         ?>
@@ -880,7 +965,7 @@
                                             <td> <?php echo $modalci['HoraAsignado'];?></td>
                                             <td> <?php echo $modalci['enombre'];?></td>
                                             <td><button data-modal-target="#modalci_<?php echo $modalci['id_preagendamiento'];?>">Detalles</button></td>
-                                            <td><button class="delete" data-user-id="<?php echo $modalci['id_usuario'];?>" data-role='3'>Eliminar</button></td>
+                                            <td><button class="delete" id=delete data-user-id="<?php echo $modalci['id_usuario'];?>" data-role='3'>Eliminar</button></td>
                                         </tr>
 
                                         <?php
@@ -898,7 +983,7 @@
                     <!-- --------------PANEL CITAS AGENDADAS----------------- -->
                     <div id="panel_cita_agendada" class="contain_main">
                         <div class="cont_titulo">
-                            <p>Panel citas solicitadas</p>
+                            <p>Panel citas agendadas</p>
                         </div>
                         <div class="cont_general_all">
 
@@ -931,14 +1016,14 @@
                                         if(mysqli_num_rows($citasoli_query)>0){
                                             while($citasoli = mysqli_fetch_assoc($citasoli_query)){
                                         ?>
-                                        <tr id=table_row_<?php echo $citasoli['id_usuario']?>>
+                                        <tr id=citatable_row_<?php echo $citasoli['id_citas']?>>
                                             <td> <?php echo $citasoli['id_citas'];?></td>
                                             <td> <?php echo $citasoli['id_usuario'];?></td>
                                             <td> <?php echo $citasoli['usuario_nombre'];?></td>
                                             <td> <?php echo $citasoli['FechaAsignada'];?></td>
                                             <td> <?php echo $citasoli['HoraAsignado'];?></td>
                                             <td> <?php echo $citasoli['doctor_nombre'];?></td>
-                                            <td><button class="delete" data-user-id="<?php echo $citasoli['id_usuario'];?>" data-role='3'>Eliminar</button></td>
+                                            <td><button class="delete" id=delete data-user-id="<?php echo $citasoli['id_citas'];?>" data-role='cita'>Eliminar</button></td>
                                         </tr>
 
                                         <?php
@@ -1009,12 +1094,12 @@
                                         if(mysqli_num_rows($pato_query)>0){
                                             while($pato =mysqli_fetch_assoc($pato_query)){
                                         ?>
-                                        <tr id=table_row_<?php echo $pato['id_patologia']?>>
+                                        <tr id=patotable_row_<?php echo $pato['id_patologia']?>>
                                             <td> <?php echo $pato['id_patologia'];?></td>
                                             <td> <?php echo $pato['nombre_patologia'];?></td>
                                             <td> <?php echo $pato['puntuacion'];?></td>
                                             <td><button data-modal-target="#modalpato_<?php echo $pato['id_patologia'];?>">Detalles</button></td>
-                                            <td><button class="delete" data-user-id="<?php echo $pato['id_patologia'];?>" data-role="patologia">Eliminar</button></td>
+                                            <td><button class="delete" id=delete data-user-id="<?php echo $pato['id_patologia'];?>" data-role="patologia">Eliminar</button></td>
                                         </tr>
 
                                         <?php
@@ -1058,7 +1143,7 @@
                         </div>
                         <div class="cont_general_all">
 
-                            <div class="panel-main" id="contain_tablas"> 
+                            <div class="panel-main" id="contain_tablas_tipocita"> 
                                 <table>
                                     <thead>
                                     <tr>
@@ -1077,13 +1162,13 @@
                                         $sql5 = "SELECT * FROM tipo_cita";   //tipo citas
                                         $tcita_query = mysqli_query($conn, $sql5);
                                         if(mysqli_num_rows($tcita_query)>0){
-                                            while($tcita =mysqli_fetch_assoc($tcita_query)){
+                                            while($citaa =mysqli_fetch_assoc($tcita_query)){
                                         ?>
-                                        <tr id=table_row_<?php echo $tcita['id']?>>
-                                            <td> <?php echo $tcita['id'];?></td>
-                                            <td> <?php echo $tcita['enombre'];?></td>
-                                            <td><button data-modal-target="#modaltipocita_<?php echo $tcita['id'];?>">Detalles</button></td>
-                                            <td><button class="delete" data-user-id="<?php echo $tcita['id'];?>" data-role="tipocita" >Eliminar</button></td>
+                                        <tr id='tipoctable_row_<?php echo $citaa['id']?>'>
+                                            <td> <?php echo $citaa['id'];?></td>
+                                            <td> <?php echo $citaa['enombre'];?></td>
+                                            <td><button data-modal-target="#modaltipocita_<?php echo $citaa['id'];?>">Detalles</button></td>
+                                            <td><button class="delete" id=delete data-user-id="<?php echo $citaa['id'];?>" data-role="tipocita" >Eliminar</button></td>
                                         </tr>
 
                                         <?php
@@ -1105,20 +1190,16 @@
 
                         <div class="cont_general_all">
                         
-                        <div class="survey-container">
-                                <div class="question">
-                                    <label for="id-number">ID Especialidad</label>
-                                    <input type="text" name="doc_id-number" required>
-                                </div>
-                                <div class="question">
-                                    <label for="name">Nombre Especialidad</label>
-                                    <input type="text" name="doc_name" required>
-                                </div>
-                                <div class="save">
-                                    <div class="save-button">
-                                    <a href="#" id="guardar-button">Guardar</a>
+                            <div class="survey-container">
+                                    <div class="question">
+                                        <label for="name">Nombre Especialidad</label>
+                                        <input type="text" name="espe_name" required>
                                     </div>
-                                </div>
+                                    <div class="save">
+                                        <div class="save-button" id="guardar-espe">
+                                        <a href="#" id="guardar-espe">Guardar</a>
+                                        </div>
+                                    </div>
                             </div>
 
                         </div>    
@@ -1131,7 +1212,7 @@
                         </div>
                         <div class="cont_general_all">
 
-                            <div class="panel-main" id="contain_tablas"> 
+                            <div class="panel-main" id="contain_tablas_especialidad"> 
                                 <table>
                                     <thead>
                                     <tr>
@@ -1152,11 +1233,11 @@
                                         if(mysqli_num_rows($consulta)>0){
                                             while($especi =mysqli_fetch_assoc($consulta)){
                                         ?>
-                                        <tr id=table_row_<?php echo $especi['id_especialidad']?>>
+                                        <tr id=specialtable_row_<?php echo $especi['id_especialidad']?>>
                                             <td> <?php echo $especi['id_especialidad'];?></td>
                                             <td> <?php echo $especi['especialidad'];?></td>
-                                            <td><button data-modal-target="#modal_<?php echo $especi['id_especialidad'];?>">Detalles</button></td>
-                                            <td><button class="delete" data-user-id="<?php echo $especi['id_especialidad'];?>">Eliminar</button></td>
+                                            <td><button data-modal-target="#modalspecial_<?php echo $especi['id_especialidad'];?>">Detalles</button></td>
+                                            <td><button class="delete" id=delete data-user-id="<?php echo $especi['id_especialidad'];?>" data-role="especialidad">Eliminar</button></td>
                                         </tr>
 
                                         <?php
@@ -1177,7 +1258,7 @@
                         </div>
                         <div class="cont_general_all">
 
-                            <div class="panel-main" id="contain_tablas"> 
+                            <div class="panel-main" id="contain_tablas_role"> 
                                 <table>
                                     <thead>
                                     <tr>
@@ -1197,10 +1278,10 @@
                                         if(mysqli_num_rows($consulta)>0){
                                             while($roles =mysqli_fetch_assoc($consulta)){
                                         ?>
-                                        <tr id=table_row_<?php echo $roles['id_rol']?>>
+                                        <tr id=roletable_row_<?php echo $roles['id_rol']?>>
                                             <td> <?php echo $roles['id_rol'];?></td>
                                             <td> <?php echo $roles['nombre_rol'];?></td>
-                                            <td><button class="delete" data-user-id="<?php echo $roles['id_rol'];?>">Eliminar</button></td>
+                                            <td><button class="delete" id=delete data-user-id="<?php echo $roles['id_rol'];?>" data-role="rol">Eliminar</button></td>
                                         </tr>
 
                                         <?php
@@ -1219,5 +1300,5 @@
     </section>
 
 </body>
-<script src="../Js/sql.js"></script>
+<script src="../Js/sqli.js"></script>
 </html>

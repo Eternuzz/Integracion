@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt4 = mysqli_prepare($conn, "DELETE FROM usuario WHERE id_usuario = ?");
     mysqli_stmt_bind_param($stmt4, "s", $userId);
 
-    if ($userRole == 3) {
+    if ($userRole == "medico") {
         mysqli_stmt_execute($stmt);
         mysqli_stmt_execute($stmt2);
         mysqli_stmt_execute($stmt3);
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt7 = mysqli_prepare($conn, "DELETE FROM usuario WHERE id_usuario = ?");
     mysqli_stmt_bind_param($stmt7, "s", $userId);
 
-    if ($userRole == 2) {
+    if ($userRole == "usuario") {
         mysqli_stmt_execute($stmt5);
         mysqli_stmt_execute($stmt6);
         mysqli_stmt_execute($stmt7);
@@ -105,6 +105,61 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
 
+
+    // ----------------DELETE ESPECIALIDAD------------------------
+    
+    $stmt13 = mysqli_prepare($conn, "DELETE FROM consultorio WHERE id_especialidad = ?");
+    mysqli_stmt_bind_param($stmt13, "i", $userId);
+
+    $stmt14 = mysqli_prepare($conn, "DELETE FROM especialidades WHERE id_especialidad = ?");
+    mysqli_stmt_bind_param($stmt14, "i", $userId);
+
+    if ($userRole == "especialidad") {
+        mysqli_stmt_execute($stmt13);
+        mysqli_stmt_execute($stmt14);
+        if (mysqli_stmt_affected_rows($stmt14) > 0) {
+        // Send a success response
+        echo "ESPECIALIDAD deleted successfully";
+        } else {
+        // Send an error response
+        echo "Error deleting ESPECIALDAD";
+        }
+    }
+
+
+    // ----------------DELETE ROL------------------------
+    
+    $stmt15 = mysqli_prepare($conn, "DELETE FROM roles WHERE id_rol = ?");
+    mysqli_stmt_bind_param($stmt15, "i", $userId);
+
+    if ($userRole == "rol") {
+        mysqli_stmt_execute($stmt15);
+        if (mysqli_stmt_affected_rows($stmt15) > 0) {
+        // Send a success response
+        echo "ROL deleted successfully";
+        } else {
+        // Send an error response
+        echo "Error deleting ROL";
+        }
+    }
+
+
+    // ----------------DELETE CITA------------------------
+    
+    $stmt16 = mysqli_prepare($conn, "DELETE FROM citas_agendadas WHERE id_citas = ?");
+    mysqli_stmt_bind_param($stmt16, "i", $userId);
+
+    if ($userRole == "cita") {
+        mysqli_stmt_execute($stmt16);
+        if (mysqli_stmt_affected_rows($stmt16) > 0) {
+        // Send a success response
+        echo "CITA deleted successfully";
+        } else {
+        // Send an error response
+        echo "Error deleting CITA";
+        }
+    }
+
     // -----------------------CLOSE----------------------------------
 
     // Close the statement and connection
@@ -120,6 +175,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     mysqli_stmt_close($stmt10);
     mysqli_stmt_close($stmt11);
     mysqli_stmt_close($stmt12);
+    mysqli_stmt_close($stmt13);
+    mysqli_stmt_close($stmt14);
+    mysqli_stmt_close($stmt15);
+    mysqli_stmt_close($stmt16);
 
     mysqli_close($conn);
 }

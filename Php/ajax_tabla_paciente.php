@@ -91,7 +91,7 @@
                                     <td><?php echo $row['edad'];?></td>
                                     <td><?php echo $row['genero'];?></td>
                                     <td><button data-modal-target="#modal_<?php echo $row['id_usuario'];?>">Detalles</button></td>
-                                    <td><button class="delete" data-user-id="<?php echo $row['id_usuario'];?>" data-role='2'>Eliminar</button></td>
+                                    <td><button class="delete" data-user-id="<?php echo $row['id_usuario'];?>" data-role='usuario'>Eliminar</button></td>
                                 </tr>
                                     
                                 <?php

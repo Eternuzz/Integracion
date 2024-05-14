@@ -89,7 +89,7 @@
                 <td> <?php echo $fila['edad'];?></td>
                 <td> <?php echo $fila['telefono'];?></td>
                 <td><button data-modal-target="#modal_<?php echo $fila['id_usuario'];?>">Detalles</button></td>
-                <td><button class="delete" data-user-id="<?php echo $fila['id_usuario'];?>" data-role='3'>Eliminar</button></td>
+                <td><button class="delete" data-user-id="<?php echo $fila['id_usuario'];?>" data-role='medico'>Eliminar</button></td>
             </tr>
 
             <?php

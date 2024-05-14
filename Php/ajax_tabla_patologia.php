@@ -65,7 +65,7 @@
                                         if(mysqli_num_rows($pato_query)>0){
                                             while($pato =mysqli_fetch_assoc($pato_query)){
                                         ?>
-                                        <tr id=table_row_<?php echo $pato['id_patologia']?>>
+                                        <tr id=patotable_row_<?php echo $pato['id_patologia']?>>
                                             <td> <?php echo $pato['id_patologia'];?></td>
                                             <td> <?php echo $pato['nombre_patologia'];?></td>
                                             <td> <?php echo $pato['puntuacion'];?></td>
