@@ -282,6 +282,70 @@ main {
  
 }
 
+/*Nuevo*/
+
+.contain_notificaciones{
+    display: flex;
+    width: 80%;
+    height: 100%;
+    
+
+}
+.card{
+    width: 30%;
+    height: 30%;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    border-radius: 10px;
+    margin: 1%;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    background-image: url(../Img/corner-1.png);
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.titulo_card{
+    width: 80%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mensaje_card{
+    width: 80%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botones_card{
+    width: 80%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.botones_card>button{
+    width: 30%;
+    height: 80%;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+    background-image: url(../Img/corner-1.png);
+    background-position: right;
+    background-repeat: no-repeat;
+}
+/**/
+
+
 /* estilos formularios agregar citas */
 
 .separar{
@@ -386,7 +450,7 @@ main {
 }
 
 
-/*-----------------------contenedores para el menu en responcil hamburgesa-------------------------- */
+/*-----------------------contenedores para el menu en responcil -------------------------- */
 .contenedor_hamburguesa{
     display: none;
 }

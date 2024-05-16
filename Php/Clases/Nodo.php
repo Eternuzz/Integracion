@@ -28,10 +28,17 @@ class Nodo{
     public function ModificarMedico($NuevoMedico){
         $this->datos["MedicoAsignado"]=$NuevoMedico;
     }
+// Metodos para filtro 2 
+    public function fecha2($fecha2){
+        $this->datos["FechaSolicitada"]=$fecha2;
+    }
+    public function ModificaInicio($NuevaHora2){
+        $this->datos["HoraInicio"]=$NuevaHora2;
+    }
 
-
-
-
+    public function Modificafin($NuevaHorafin){
+        $this->datos["HoraFin"]=$NuevaHorafin;
+    }
 
 }
 

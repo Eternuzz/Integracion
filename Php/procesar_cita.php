@@ -8,9 +8,15 @@ date_default_timezone_set('America/Bogota');
 $id_user=$_SESSION['id'];
 $edad=$_SESSION['edad'];
 
-$fecha = $_POST['fecha_date'];
+$fecha = $_POST['fecha'];
+$fecha2 = $_POST['fecha2'];
+
 $hora_inicio = $_POST['hora_inicio'];
+$hora_inicio2 = $_POST['hora_inicio_2'];
+
 $hora_fin = $_POST['hora_fin'];
+$hora_fin2 = $_POST['hora_fin_2'];
+
 $id_tipo_cita= $_POST['tipocita'];
 
 $sql="SELECT usuario.*, patologias.puntuacion AS puntuacion_patologia,
@@ -24,7 +30,7 @@ if(mysqli_num_rows($consulta)>0){
     $point_patologia=$datos['puntuacion_patologia'];
     $point_embarazo=$datos['puntuacion_embarazo'];
     
-}
+}   
 if(mysqli_num_rows($consulta2)>0){
     $datos2= mysqli_fetch_array($consulta2);
     $point_edad= $datos2['id_puntaje'];
@@ -34,7 +40,7 @@ echo "patologia: ",$point_patologia, "embarazo: ",$point_embarazo,"EDad: ", $poi
 
 $fechaHoraActual = date('Y-m-d H:i:s');
 $ahora_mismo ="".$fechaHoraActual;
-$sql_insertar_cita = " INSERT INTO preagendamiento (id_usuario,id_tipo_cita,fecha,hora_inicio,valoracion,hora_fin,orden,registro)  VALUES ('$id_user','$id_tipo_cita','$fecha','$hora_inicio','$suma','$hora_fin',0,'$ahora_mismo')";
+$sql_insertar_cita = " INSERT INTO preagendamiento (id_usuario,id_tipo_cita,fecha,fecha_2,hora_inicio,valoracion,hora_fin,hora_inicio_2,hora_fin_2,registro)  VALUES ('$id_user','$id_tipo_cita','$fecha','$fecha2','$hora_inicio','$suma','$hora_fin','$hora_inicio2','$hora_fin2','$ahora_mismo')";
 $ejecutar_consulta = mysqli_query($conn,$sql_insertar_cita);
 if($ejecutar_consulta){
     $sql_ordenar_citas = " SELECT * FROM preagendamiento";

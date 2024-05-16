@@ -21,6 +21,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>medpriority</title>
     <link rel="stylesheet" href="../Css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -84,8 +90,8 @@
                         <a href="#notificaciones">
                             <div class="con_imagen" id="icono"> <img src="../Img/alarma.png" alt=""></div>
                         </a>
-                        <a href="#notificaciones" class="inicio">
-                            <div class="con_opcion" id="notificaciones">
+                        <a href="#notificaciones" class="inicio" onclick="noti()">
+                            <div class="con_opcion" id="notificacionet">
                                 <h4>Notificaciones</h4>
                             </div>
                         </a>
@@ -157,7 +163,24 @@
 
                     <div class="cont_titulo">Notificaciones</div>
 
-                    <div class="cont_general_all"></div>
+                    <div class="cont_general_all" >
+                        <div id="contain_notificaciones">
+
+                        <div class="card">
+
+                            <div class="titulo_card"></div>
+                            <div class="mensaje_card"></div>
+                            <div class="botones_card">
+                                <button>Aceptar</button>
+                                <button>Rechazar</button>
+                            </div>
+
+                        </div>
+                        </div>
+
+
+
+                    </div>
 
                 </div>
 
@@ -172,6 +195,7 @@
 
 
                 <div id="AgregarCita" class="historialcita">
+                
 
                     <div class="cont_titulo"> Agregar Cita</div>
 
@@ -202,7 +226,7 @@
                         <div class="preguntas_formulario">
 
                             <div class="cont_preguntas">
-
+                            <form action="procesar_cita.php" method="post" class="contenedor_formulario" id="formulario_general">
                                 <label for="edad" id="edad">Edad:</label>
                                 <input type="number" id="edad" name="edad" value="<?php echo $_SESSION['edad'] ?>">
                             </div>
@@ -240,29 +264,47 @@
                         </div>
 
                         <div class="preguntas_formularioo">
-                            <div class="cont_preguntas">
-                                <label for="tipo_cita">Tipo de Cita:</label>
-                                <select id="tipo_cita" name="tipo_cita">
-                                    <option value="normal">Normal</option>
-                                    <option value="urgente">Urgente</option>
-                                </select>
+                                <div class="cont_preguntas">
+                                    <label for="tipo_cita">Tipo de Cita:</label>
+                                    <select class="tipocita" name="tipocita">
+                                        <?php
+                                        $sql="SELECT * FROM tipo_cita";
+                                        $consul= mysqli_query($conn,$sql);
 
-                            </div>
+                                            if($consul){
+                                                while($desplegar= $consul->fetch_assoc()){
+                                                    echo "<option value='".$desplegar['id']."'>".$desplegar['enombre']."</option>";
+                                                }
+                                            }
+                                        ?>
+                                    </select>
+
+                                </div>
                             <div class="cont_preguntas" id="fecha">
                                 <label for="fecha">Fecha:</label>
-                                <input type="time" id="fecha" name="fecha">
-
+                                <input type="date" id="fecha" name="fecha">
 
                             </div>
-                            <div class="cont_preguntas" id="hora_inicio"> <label for="hora_inicio">Hora de
-                                    Inicio:</label>
-                                <input type="time" id="hora_inicio" name="hora_inicio">
+                            <div class="cont_preguntas" id="hora_inicio">
+                                <label for="hora_inicio">Hora de Inicio:</label>
+                                <select name="hora_inicio" id="hora_rango1" required>
+                                    <?php
+                                        $sql="SELECT * FROM horarios WHERE EXTRACT(MINUTE FROM hora_inicio) IN (0, 30);";
+                                        $consul2= mysqli_query($conn,$sql);
+
+                                        if($consul2){
+                                            while($desplegar2= $consul2->fetch_assoc()){
+                                                echo "<option value='".$desplegar2['id_horario']."'>".$desplegar2['hora_inicio']."</option>";
+                                            }
+                                        }
+                                    ?>
+                                </select>
                             </div>
                             <div class="cont_preguntas" id="hora_final">
-                                <label for="hora_final">Hora Final:</label>
-                                <input type="time" id="hora_final" name="hora_final">
-
+                                <label class="horas">Hora final:</label>
+                                <select name="hora_fin" id="rango" required></select>
                             </div>
+
                             <div class="cont_preguntas">
                                 <label for="hora_final" id="agregar">Agregar Cita:</label>
                                 <img src="../Img/logo.png" alt="">
@@ -270,11 +312,41 @@
                             </div>
 
                         </div>
-                        <div class="cont_preguntass"> <button>Agregar cita</button></div>
+                        <div class="preguntas_formularioo">
+                           
+                            <div class="cont_preguntas" id="fecha2">
+                                <label for="fecha">Fecha:</label>
+                                <input type="date" id="fecha" name="fecha2">
+
+                            </div>
+                            <div class="cont_preguntas" id="hora_inicio">
+                                <label for="hora_inicio">Hora de Inicio:</label>
+                                <select name="hora_inicio_2" id="hora_rango2" required>
+                                    <?php
+                                        $sql="SELECT * FROM horarios WHERE EXTRACT(MINUTE FROM hora_inicio) IN (0, 30);";
+                                        $consul2= mysqli_query($conn,$sql);
+
+                                        if($consul2){
+                                            while($desplegar3= $consul2->fetch_assoc()){
+                                                echo "<option value='".$desplegar3['id_horario']."'>".$desplegar3['hora_inicio']."</option>";
+                                            }
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="cont_preguntas" id="hora_final">
+                                <label class="horas">Hora final:</label>
+                                <select name="hora_fin_2" id="rango_2" required></select>
+                            </div>
+
+
+                        </div>
+                        
+                        <div class="cont_preguntass"> <button type="" class="submit-btn" id="solicitar">Enviar</button></div> 
 
 
                     </div>
-
+                </form>
                 </div>
 
 
@@ -286,7 +358,7 @@
 
                 </div>
 
-
+                
                 <div id="historialcitasS" class="historialcita">
 
                     <div class="cont_titulo"> Historial Citas</div>
@@ -307,6 +379,7 @@
             </main>
         </div>
     </section>
+
     <script>
 
 
@@ -324,30 +397,56 @@
             });
         });
 
-
-
-
-        document.addEventListener('DOMContentLoaded', function () {
-            var imagen = document.querySelector('img[src="../Img/logo.png"]');
-            var contenedorOriginal = document.querySelector('.preguntas_formularioo');
-            var contenedoresClonados = []; // Array para almacenar los contenedores clonados
-
-            imagen.addEventListener('click', function () {
-                if (contenedoresClonados.length === 0) { // Si no hay contenedores clonados, clonar y mostrar
-                    var clon = contenedorOriginal.cloneNode(true);
-                    contenedorOriginal.parentNode.insertBefore(clon, contenedorOriginal.nextSibling);
-                    contenedoresClonados.push(clon);
-                } else { // Si ya hay contenedores clonados, ocultarlos y vaciar el array
-                    contenedoresClonados.forEach(function (clon) {
-                        clon.style.display = 'none';
-                    });
-                    contenedoresClonados = [];
-                }
-            });
-        });
-
     </script>
 
+    <script>
+    let hora_rango1 = document.getElementById("hora_rango1");
+    let opcion_actual;
+    
+    let hora_rango2 = document.getElementById("hora_rango2");
+    let opcion_actual2;
+    $(document).ready(function() {
+    $("#hora_rango1").change(function() {
+        opcion_actual = $(this).val();
+        console.log("Opción seleccionada 1: ", opcion_actual);        
+
+        $.ajax({
+            url: "horarios.php",
+            type: "POST",
+            data: { opcion_actual: opcion_actual },
+            success: function(respon3) {
+                console.log("Respuesta del servidor:", respon3);
+                $("#rango").html(respon3);
+            },
+            error: function() {
+                alert("Error al cargar las opciones del select rango_2");
+            }
+        });
+    });
+
+    $("#hora_rango2").change(function() {
+        opcion_actual2 = $(this).val();
+        console.log("Opción seleccionada 2: ", opcion_actual2);        
+
+        $.ajax({
+            url: "horarios.php",
+            type: "POST",
+            data: { opcion_actual2: opcion_actual2 },
+            success: function(respon4) {
+                console.log("Respuesta del servidor:", respon4);
+                $("#rango_2").html(respon4);
+            },
+            error: function() {
+                alert("Error al cargar las opciones del select rango_2");
+            }
+        });
+    });
+});
+
+
+</script>
+
+<script src="../Js/ajax.js"></script>
 </body>
 
 

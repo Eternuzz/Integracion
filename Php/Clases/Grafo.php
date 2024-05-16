@@ -84,19 +84,78 @@ class Grafo{
             $HoraDisponibilidad =$this->CompararHorasNodos($NodosOrdenados[$i],$ArregloDeHoras,$NodosFiltrados);
             $NodosOrdenados[$i]->ModificarHora($HoraDisponibilidad);
 
+            if ($NodosOrdenados[$i]->datos['HoraAsignada'] === null) {
+                
+                $datossinhora=$consulta->datos_filtro2($NodosOrdenados[$i]->id);
+                $NodosOrdenados[$i] ->fecha2($datossinhora[0]);
+                $NodosOrdenados[$i] ->ModificaInicio($datossinhora[1]);
+                $NodosOrdenados[$i] ->ModificaFin($datossinhora[2]);
+            }
            }
 
            array_push($NodosFiltrados,$NodosOrdenados[$i]);
 
-
         }
 
         
-
         return $NodosOrdenados;
 
     }
+    public function filtro2(){
+       
+        $consulta = new Consultas($this->Conexion);
+        $NodosOrdenados = $this->AsginarHora();
+        $NodosFiltrados = array();
+       $NodosFilter3= array();
+       $band=0;
+        for($i=0 ; $i<count($NodosOrdenados);$i++){
 
+           $ArregloDeHoras = $consulta->HorasDisponiblesPorRango($NodosOrdenados[$i]->datos["HoraInicio"],$NodosOrdenados[$i]->datos["HoraFin"]);
+
+           if($i==0){
+
+            //$NodosOrdenados[$i]->AgregarDatoHora($ArregloDeHoras[$i]);
+            $NodosOrdenados[$i]->ModificarHora($ArregloDeHoras[$i]);
+
+           }else{
+
+           // $NodosOrdenados[$i]->AgregarDatoHora(null);
+            $HoraDisponibilidad =$this->CompararHorasNodos($NodosOrdenados[$i],$ArregloDeHoras,$NodosFiltrados);
+            $NodosOrdenados[$i]->ModificarHora($HoraDisponibilidad);
+            
+                if ($NodosOrdenados[$i]->datos['HoraAsignada'] === null) {
+                    
+                    $fecha = $NodosOrdenados[$i]->datos["FechaSolicitada"];
+                    $horaInicio = $NodosOrdenados[$i]->datos["HoraInicio"];
+                    $horaFin = $NodosOrdenados[$i]->datos["HoraFin"];
+                    $user = $NodosOrdenados[$i]->datos["idUsuario"];
+                    $band++;
+                    // Llamar a la función datos_filter3() con la fecha y horas como parámetros
+                    $horariosDisponibles = $consulta->datos_filter3($NodosOrdenados[$i]->id, $fecha, $horaInicio, $horaFin,$user,$band);
+                   
+                  //  $consulta->insertar_sugerencias($NodosOrdenados[$i]->datos['idUsuario'], $fecha,$horariosDisponibles[$band],'reservado',$NodosOrdenados[$i]->id);
+                    
+                    echo "id : ".$NodosOrdenados[$i]->id. "Horarios disponibles para la fecha " . $fecha . ": ";
+                    print_r($horariosDisponibles);
+                    echo "<br>";
+                }
+           }
+
+           array_push($NodosFiltrados,$NodosOrdenados[$i]);
+        }
+
+        
+        return $NodosOrdenados;
+
+    }
+    
+  /*  1.sacar los datos que no tienen hora asignada 
+    2.fechas  mas cerca a la  fecha que el usuario necesita y la hora
+    3.mandar los datos al usuario
+        
+    
+    
+    
     /* Compara El Nodo al que se le asignara la hora, Con solo los nodos que ya tienen una hora asignada
     Compara Fecha Y Hora para Saber si hay y retornar disponibilidad */
     public function CompararHorasNodos($nodo,$ArregloHorasNodo,$NodosFiltrados){
@@ -187,7 +246,8 @@ class Grafo{
 
 
     public function AsignarMedicoNofunciona(){
-        $NodosConHoras = $this->FiltrarNodosNoNull($this->AsginarHora());
+        $NodosConHoras = $this->FiltrarNodosNoNull($this->filtro2());
+
         //$NodosConHoras = $this->AsginarHora();
         $Consultar = new Consultas($this->Conexion);
         $NodosYaAsignados = array();
