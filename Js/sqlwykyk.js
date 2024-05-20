@@ -648,7 +648,7 @@ function tabla_preagendamiento() {
 
 // update modal paciente and doctor
 
-$(".save-button, #save-user, #save-patologia, #save-typecita, #guardar-button, #paciente-nuevo, #guardar-pato, #guardar-citatype, #save-especial, #guardar-espe, #cita-nueva, #save-preagendamiento").click(function () {
+$(".save-button, .save-pat-button, #save-user, #save-patologia, #save-typecita, #guardar-button, #paciente-nuevo, #guardar-pato, #guardar-citatype, #save-especial, #guardar-espe, #cita-nueva, #save-preagendamiento").click(function () {
     tabla_medico();
     tabla_paciente();
     tabla_patologia();

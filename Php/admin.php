@@ -5,11 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medpriority ADMIN</title>
-<<<<<<< HEAD
-    <link rel="stylesheet" href="../Css/adminldr.css">
-=======
     <link rel="stylesheet" href="../Css/admin.css">
->>>>>>> d71bce68f597541ba9042ab1eae4bf9d91869726
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -662,13 +658,10 @@
                     <div id="panel_med" class="contain_main">
                         <div class="cont_titulo">
                             <p>Panel medicos</p>
-<<<<<<< HEAD
                             <div class="search-container">
                                 <input type="text" id="doctor_search">
                                 <div class="search-img"></div>
                             </div>
-=======
->>>>>>> d71bce68f597541ba9042ab1eae4bf9d91869726
                         </div>
                         <div class="cont_general_all">
 
@@ -837,27 +830,14 @@
                                 <div class="cont_preguntas_search"> 
                                     <label for="identificacion">Identificación:</label>
                                     <div class="search">
-<<<<<<< HEAD
                                         <input type="text" name="identi_cita" id="identi_cita">
                                         <div class="search-img" id="search_paciente"></div>
-=======
-                                        <input type="text" name="identi_cita">
-                                        <div class="search-img"></div>
->>>>>>> d71bce68f597541ba9042ab1eae4bf9d91869726
                                     </div>
                                 </div>
                                 <div class="cont_preguntas">
                                     <label for="tipo_identificacion">Tipo de Identificación:</label>
-<<<<<<< HEAD
                                     <input type="text" disabled name="type_id_cita">
-=======
-                                    <input type="text" disabled ="type_id_cita">
->>>>>>> d71bce68f597541ba9042ab1eae4bf9d91869726
-                                </div>
                                 <div class="cont_preguntas"> 
-                                    <label for="nombre">Nombres:</label>
-                                    <input type="text" disabled name="name_cita">
-                                </div>
                             </div>
 
                             <div class="preguntas_formulario">
@@ -871,11 +851,7 @@
                                 </div>
                                 <div class="cont_preguntas"> 
                                     <label for="trabajo">Trabajo:</label> <!-- NOT IN DATABASE -->
-<<<<<<< HEAD
                                     <input disabled type="text" name="trabajo_cita">
-=======
-                                    <input disabled type="text" name="trabajo">
->>>>>>> d71bce68f597541ba9042ab1eae4bf9d91869726
                                 </div>
                             </div>
 
@@ -894,11 +870,7 @@
                             <div class="preguntas_formulario"> 
                                 <div class="cont_preguntas">
                                     <label for="tipo_cita">Tipo de Cita:</label>
-<<<<<<< HEAD
                                     <select name="tipo_cita" disabled>
-=======
-                                    <select name="tipo_cita">
->>>>>>> d71bce68f597541ba9042ab1eae4bf9d91869726
                                         <?php 
                                             $q_cita = "SELECT * FROM tipo_cita";
                                             $selcita = mysqli_query( $conn, $q_cita );
@@ -917,19 +889,11 @@
                                 </div>
                                 <div class="cont_preguntas">
                                     <label for="fecha">Fecha:</label>
-<<<<<<< HEAD
                                     <input type="date" name="fecha_cita" disabled>
                                 </div>
                                 <div class="cont_preguntas">
                                     <label for="hora_inicio">Hora de Inicio:</label>
                                     <select name="hora_inicio" disabled>
-=======
-                                    <input type="date" name="fecha_cita">
-                                </div>
-                                <div class="cont_preguntas">
-                                    <label for="hora_inicio">Hora de Inicio:</label>
-                                    <select name="hora_inicio">
->>>>>>> d71bce68f597541ba9042ab1eae4bf9d91869726
                                         <?php 
                                             $q_horas = "SELECT * FROM horarios";
                                             $sel = mysqli_query( $conn, $q_horas );
@@ -948,11 +912,7 @@
                                 </div>
                                 <div class="cont_preguntas">
                                     <label for="hora_final">Hora Final:</label>
-<<<<<<< HEAD
                                     <select name="hora_final" disabled>
-=======
-                                    <select name="hora_final">
->>>>>>> d71bce68f597541ba9042ab1eae4bf9d91869726
                                     <?php 
                                         $q_horas = "SELECT * FROM horarios";
                                         $sel = mysqli_query( $conn, $q_horas );
@@ -1008,12 +968,8 @@
 
                                         $sql99 = "SELECT * FROM preagendamiento
                                                 INNER JOIN usuario ON preagendamiento.id_usuario = usuario.id_usuario
-<<<<<<< HEAD
                                                 INNER JOIN tipo_cita ON preagendamiento.id_tipo_cita = tipo_cita.id
                                                 ORDER BY preagendamiento.id_preagendamiento ASC";   //cita
-=======
-                                                INNER JOIN tipo_cita ON preagendamiento.id_tipo_cita = tipo_cita.id";   //cita
->>>>>>> d71bce68f597541ba9042ab1eae4bf9d91869726
                                         $cita_query = mysqli_query($conn, $sql99);
                                         if(mysqli_num_rows($cita_query)>0){
                                             while($modalci = mysqli_fetch_assoc($cita_query)){
@@ -1360,9 +1316,5 @@
     </section>
 
 </body>
-<<<<<<< HEAD
-<script src="../Js/sqlwykyk.js"></script>
-=======
 <script src="../Js/sql.js"></script>
->>>>>>> d71bce68f597541ba9042ab1eae4bf9d91869726
 </html>
