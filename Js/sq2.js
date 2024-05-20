@@ -646,7 +646,7 @@ function buscar_datos(url,data,respuesta){
 }
 
 
-function boton(botonn){
+function boton_(botonn){
     $("#"+botonn).click(function () {
         buscar_datos();
     });
@@ -654,7 +654,7 @@ function boton(botonn){
 
 function evento_click(url,data,respuesta,boton){
     buscar_datos(url,data,respuesta);
-    boton(boton);
+    boton_(boton);
 }
 
 

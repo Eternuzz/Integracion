@@ -7,10 +7,9 @@ require_once ('conexion.php');
 //Buscar Paciente------------------------------------------
 if(isset($_POST["btn_medicosP"])){
 
-    $dato=$_POST["btn_medicosP"];
-    $sql = "SELECT * FROM usuarios u 
-        INNER JOIN estado e ON u.estado = e.idestado 
-        INNER JOIN roles r ON u.id_rol = r.idroles 
+    $patron=$_POST["btn_medicosP"];
+    $sql = "SELECT * FROM usuario u 
+        INNER JOIN roles r ON u.id_rol = r.id_rol 
         WHERE u.nombre LIKE '%$patron%' 
         OR u.edad LIKE '%$patron%' 
         OR u.telefono LIKE '%$patron%' 
@@ -26,6 +25,8 @@ if(isset($_POST["btn_medicosP"])){
 
     if ($buscar) {
         while($ff =mysqli_fetch_assoc($buscar)){
+            $modalId = 'modal_' . $ff['id_usuario'];
+            $identi = $ff['id_usuario'];
         
         ?>
 
@@ -73,7 +74,6 @@ if(isset($_POST["btn_medicosP"])){
             </div>
 <?php
             }
-            while($fila =mysqli_fetch_assoc($buscar)){
         
 ?>
     
@@ -88,6 +88,13 @@ if(isset($_POST["btn_medicosP"])){
                 <th style="width: 15%;"></th>
             </tr>
         </thead>
+        <?php
+            
+            $buscar1=mysqli_query($conn,$sql);
+
+            while($fila =mysqli_fetch_assoc($buscar1)){
+        
+            ?>
 
         <tbody>
             <tr id=table_row_<?php echo $fila['id_usuario']?>>
@@ -103,8 +110,13 @@ if(isset($_POST["btn_medicosP"])){
                 
             }
         }else {
-            echo "Error: " . mysqli_error($con);
+            echo "Error: ".mysqli_error($con);
         }
             ?>
         </tbody>
     </table>
+
+    <?php
+                
+            }
+?>

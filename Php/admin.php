@@ -1327,5 +1327,5 @@
     </section>
 
 </body>
-<script src="../Js/sql.js"></script>
+<script src="../Js/sq2.js"></script>
 </html>
