@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medpriority ADMIN</title>
-    <link rel="stylesheet" href="../Css/admin2.css">
+    <link rel="stylesheet" href="../Css/ANuevo2.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -369,13 +369,13 @@
 
                 
                 <div class="inicio"><!-- contenedores de el menu -->
-                    <a href="#inicio">
+                    <a href="#inicio" class="parte_a">
                         <div class="con_imagen" id="icono"> <img src="../Img/casa.png" alt=""></div>
                     </a>
-                    <a href="#inicio" class="inicio">
-                        <div class="con_opcion">
-                            <h4>Inicio</h4>
-                        </div>
+                    <a href="#inicio" class="parte_a">
+
+                        <h4>Inicio</h4>
+
                     </a>
                 </div>
 
@@ -390,10 +390,10 @@
                     </div>
                 </div>
                 <div class="inicio">
-                    <a href="#reg_med">
+                    <a href="#reg_med" class="parte_a">
                         <div class="con_imagen" id="icono"> <img src="../Img/resume.png" alt=""></div>
                     </a>
-                    <a href="#reg_med" class="inicio">
+                    <a href="#reg_med" class="parte_a">
                         <div class="con_opcion">
                             <h4>Registrar medico</h4>
                         </div>
@@ -401,10 +401,10 @@
                 </div>
 
                 <div class="inicio">
-                    <a href="#panel_med">
+                    <a href="#panel_med" class="parte_a">
                         <div class="con_imagen" id="icono"> <img src="../Img/customer.png" alt=""></div>
                     </a>
-                    <a href="#panel_med" class="inicio">
+                    <a href="#panel_med" class="parte_a">
                         <div class="con_opcion">
                             <h4>Panel medicos</h4>
                         </div>
@@ -421,10 +421,10 @@
                     </div>
                 </div>
                 <div class="inicio">
-                    <a href="#reg_pac">
+                    <a class="parte_a" href="#reg_pac">
                         <div class="con_imagen" id="icono"> <img src="../Img/historiaclinica.png" alt=""></div>
                     </a>
-                    <a href="#reg_pac" class="inicio">
+                    <a class="parte_a" href="#reg_pac">
                         <div class="con_opcion">
                             <h4>Registrar paciente</h4>
                         </div>
@@ -432,10 +432,10 @@
                 </div>
 
                 <div class="inicio">
-                    <a href="#panel_pac">
+                    <a class="parte_a" href="#panel_pac">
                         <div class="con_imagen" id="icono"> <img src="../Img/user_panel.png" alt=""></div>
                     </a>
-                    <a href="#panel_pac" class="inicio">
+                    <a class="parte_a" href="#panel_pac">
                         <div class="con_opcion">
                             <h4>Panel pacientes</h4>
                         </div>
@@ -452,10 +452,10 @@
                     </div>
                 </div>
                 <div class="inicio">
-                    <a href="#reg_cita">
+                    <a class="parte_a" href="#reg_cita">
                         <div class="con_imagen" id="icono"> <img src="../Img/historiaclinica.png" alt=""></div>
                     </a>
-                    <a href="#reg_cita" class="inicio">
+                    <a class="parte_a" href="#reg_cita">
                         <div class="con_opcion">
                             <h4>Registrar cita</h4>
                         </div>
@@ -463,10 +463,10 @@
                 </div>
 
                 <div class="inicio">
-                    <a href="#panel_cita">
+                    <a class="parte_a" href="#panel_cita">
                         <div class="con_imagen" id="icono"> <img src="../Img/user_panel.png" alt=""></div>
                     </a>
-                    <a href="#panel_cita" class="inicio">
+                    <a class="parte_a" href="#panel_cita">
                         <div class="con_opcion">
                             <h4>Panel citas solicitadas</h4>
                         </div>
@@ -474,10 +474,10 @@
                 </div>
 
                 <div class="inicio">
-                    <a href="#panel_cita_agendada">
+                    <a class="parte_a" href="#panel_cita_agendada">
                         <div class="con_imagen" id="icono"> <img src="../Img/user_panel.png" alt=""></div>
                     </a>
-                    <a href="#panel_cita_agendada" class="inicio">
+                    <a class="parte_a" href="#panel_cita_agendada">
                         <div class="con_opcion">
                             <h4>Panel citas agendadas</h4>
                         </div>
@@ -494,10 +494,10 @@
                     </div>
                 </div>
                 <div class="inicio">
-                    <a href="#reg_pato">
+                    <a class="parte_a" href="#reg_pato">
                         <div class="con_imagen" id="icono"> <img src="../Img/historiaclinica.png" alt=""></div>
                     </a>
-                    <a href="#reg_pato" class="inicio">
+                    <a class="parte_a" href="#reg_pato">
                         <div class="con_opcion">
                             <h4>Registrar patologia</h4>
                         </div>
@@ -505,10 +505,10 @@
                 </div>
 
                 <div class="inicio">
-                    <a href="#panel_pato">
+                    <a class="parte_a" href="#panel_pato">
                         <div class="con_imagen" id="icono"> <img src="../Img/user_panel.png" alt=""></div>
                     </a>
-                    <a href="#panel_pato" class="inicio">
+                    <a class="parte_a" href="#panel_pato">
                         <div class="con_opcion">
                             <h4>Panel patologias</h4>
                         </div>
@@ -525,10 +525,10 @@
                     </div>
                 </div>
                 <div class="inicio">
-                    <a href="#reg_tcita">
+                    <a class="parte_a" href="#reg_tcita">
                         <div class="con_imagen" id="icono"> <img src="../Img/historiaclinica.png" alt=""></div>
                     </a>
-                    <a href="#reg_tcita" class="inicio">
+                    <a class="parte_a" href="#reg_tcita">
                         <div class="con_opcion">
                             <h4>Registrar tipo de cita</h4>
                         </div>
@@ -536,10 +536,10 @@
                 </div>
 
                 <div class="inicio">
-                    <a href="#panel_tcita">
+                    <a class="parte_a" href="#panel_tcita">
                         <div class="con_imagen" id="icono"> <img src="../Img/user_panel.png" alt=""></div>
                     </a>
-                    <a href="#panel_tcita" class="inicio">
+                    <a class="parte_a" href="#panel_tcita">
                         <div class="con_opcion">
                             <h4>Panel tipo de citas</h4>
                         </div>
@@ -556,10 +556,10 @@
                     </div>
                 </div>
                 <div class="inicio">
-                    <a href="#reg_especi">
+                    <a class="parte_a" href="#reg_especi">
                         <div class="con_imagen" id="icono"> <img src="../Img/historiaclinica.png" alt=""></div>
                     </a>
-                    <a href="#reg_especi" class="inicio">
+                    <a class="parte_a" href="#reg_especi">
                         <div class="con_opcion">
                             <h4>Registrar especialidades</h4>
                         </div>
@@ -567,10 +567,10 @@
                 </div>
 
                 <div class="inicio">
-                    <a href="#panel_especi">
+                    <a class="parte_a" href="#panel_especi">
                         <div class="con_imagen" id="icono"> <img src="../Img/user_panel.png" alt=""></div>
                     </a>
-                    <a href="#panel_especi" class="inicio">
+                    <a class="parte_a" href="#panel_especi">
                         <div class="con_opcion">
                             <h4>Panel especialidades</h4>
                         </div>
@@ -589,13 +589,13 @@
                 </div>
 
                 <div class="inicio">
-                    <a href="#panel_roles">
+                    <a class="parte_a" href="#panel_roles">
                         <div class="con_imagen" id="icono"> <img src="../Img/user_panel.png" alt=""></div>
                     </a>
-                    <a href="#panel_roles" class="inicio">
-                        <div class="con_opcion">
+                    <a class="parte_a" href="#panel_roles">
+
                             <h4>Panel roles</h4>
-                        </div>
+
                     </a>
                 </div>
 
