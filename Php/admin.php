@@ -666,9 +666,9 @@
                         </div>
 
                         <form class="buscador_general" id="form_buscar_medicos">
-                            <input type="text" class="input_buscador">
+                            <input type="text" class="input_buscador" name="btn_medicosP">
 
-                            <button type="button" class="btn_buscar">Buscar</button>
+                            <button type="button" class="btn_buscar" id="btn_medicos" onclick="evento_click('Buscador.php','form_buscar_medicos','contain_tablas','btn_medicos')">Buscar</button>
 
                         </form>
                         <div class="cont_general_all">

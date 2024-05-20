@@ -632,6 +632,29 @@ $(".save-button, #save-user, #save-patologia, #save-typecita, #guardar-button, #
 });
 
 
-function buscar_datos(){
-    
+function buscar_datos(url,data,respuesta){
+    $.ajax({
+        url: ""+url,
+        type: "POST",
+        data: $("#"+data).serialize(),
+        success: function (respo) {
+          $('#'+respuesta).html(respo);
+        }
+    });
+
+
 }
+
+
+function boton(botonn){
+    $("#"+botonn).click(function () {
+        buscar_datos();
+    });
+}
+
+function evento_click(url,data,respuesta,boton){
+    buscar_datos(url,data,respuesta);
+    boton(boton);
+}
+
+
