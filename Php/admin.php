@@ -837,8 +837,7 @@
                                 <div class="cont_preguntas">
                                     <label for="tipo_identificacion">Tipo de Identificación:</label>
                                     <input type="text" disabled name="type_id_cita">
-                                <div class="cont_preguntas"> 
-                            </div>
+                                </div>
 
                             <div class="preguntas_formulario">
                                 <div class="cont_preguntas"> 
